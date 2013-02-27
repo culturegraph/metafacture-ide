@@ -3,13 +3,11 @@ logs
 tmp
 .history
 dist
-lodmill-ui/.classpath
 test.*
 *.dot*
 .project
 .settings
 plugin.xml_gen
 *-gen
-.antlr-generator-*.jar
+*.jar
 *.*~
-lodmill*.jar
