@@ -81,7 +81,7 @@ public class MetatextLaunchConfigurationDelegate implements
 	}
 
 	private File write(String content) throws IOException {
-		File resolvedFile = File.createTempFile("metatext", ".flow");
+		File resolvedFile = File.createTempFile("metafacture-ide", ".flux");
 		resolvedFile.deleteOnExit();
 		FileWriter writer = new FileWriter(resolvedFile);
 		writer.write(content);

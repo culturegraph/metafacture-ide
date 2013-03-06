@@ -5,7 +5,7 @@ import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
 
 var grammarURI = "classpath:/org/culturegraph/mf/ide/Metatext.xtext"
-var file.extensions = "flow"
+var file.extensions = "flux"
 var projectName = "org.culturegraph.mf.ide"
 var runtimeProject = "../${projectName}"
 
