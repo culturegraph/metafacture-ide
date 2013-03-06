@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: org.lobid.metatext.tests
+Bundle-Name: org.culturegraph.mf.ide.tests
 Bundle-Vendor: My Company
 Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: org.culturegraph.mf.ide.tests;singleton:=true
@@ -19,4 +19,4 @@ Import-Package: org.apache.log4j,
  org.junit.runners.model;version="4.5.0",
  org.hamcrest.core
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: org.lobid.metatext
+Export-Package: org.culturegraph.mf.ide

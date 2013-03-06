@@ -6,7 +6,7 @@
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
        uri = "http://www.lobid.org/metatext/Metatext" 
-       class = "org.lobid.metatext.metatext.MetatextPackage"
+       class = "org.culturegraph.mf.ide.metatext.MetatextPackage"
        genModel = "org/lobid/metatext/Metatext.genmodel" /> 
 	
   </extension>
@@ -14,9 +14,9 @@
   <extension point="org.eclipse.debug.core.launchConfigurationTypes">
     <launchConfigurationType
         name="Metatext"
-        delegate="org.lobid.metatext.launching.MetatextLaunchConfigurationDelegate"
+        delegate="org.culturegraph.mf.ide.launching.MetatextLaunchConfigurationDelegate"
         modes="run"
-        id="org.lobid.metatext.launching">
+        id="org.culturegraph.mf.ide.launching">
     </launchConfigurationType>
   </extension>
   <extension

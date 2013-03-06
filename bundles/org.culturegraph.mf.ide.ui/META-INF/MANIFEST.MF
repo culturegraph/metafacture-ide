@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: org.lobid.metatext.ui
+Bundle-Name: org.culturegraph.mf.ide.ui
 Bundle-Vendor: My Company
 Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: org.culturegraph.mf.ide.ui;singleton:=true
@@ -18,7 +18,7 @@ Require-Bundle: org.culturegraph.mf.ide;visibility:=reexport,
  org.eclipse.compare
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: org.lobid.metatext.ui.contentassist,
- org.lobid.metatext.ui.contentassist.antlr,
- org.lobid.metatext.ui.internal
-Bundle-Activator: org.lobid.metatext.ui.internal.MetatextActivator
+Export-Package: org.culturegraph.mf.ide.ui.contentassist,
+ org.culturegraph.mf.ide.ui.contentassist.antlr,
+ org.culturegraph.mf.ide.ui.internal
+Bundle-Activator: org.culturegraph.mf.ide.ui.internal.MetatextActivator
