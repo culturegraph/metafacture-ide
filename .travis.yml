@@ -1,7 +1,7 @@
 language: java
 jdk: oraclejdk7
 install:
-  - cd metatext
+  - cd bundles
   - sh deploy.sh
 script:
   - mvn clean install -e

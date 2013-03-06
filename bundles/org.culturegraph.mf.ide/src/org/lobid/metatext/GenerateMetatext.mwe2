@@ -6,7 +6,7 @@ import org.eclipse.xtext.ui.generator.*
 
 var grammarURI = "classpath:/org/lobid/metatext/Metatext.xtext"
 var file.extensions = "flow"
-var projectName = "org.lobid.metatext"
+var projectName = "org.culturegraph.mf.ide"
 var runtimeProject = "../${projectName}"
 
 Workflow {

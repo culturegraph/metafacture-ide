@@ -25,7 +25,7 @@ import org.eclipse.ui.PlatformUI;
 public class MetatextLaunchConfigurationDelegate implements
 		ILaunchConfigurationDelegate {
 
-	private static final String BUNDLE = "org.lobid.metatext";
+	private static final String BUNDLE = "org.culturegraph.mf.ide";
 	private static final ILog LOG = Platform.getLog(Platform.getBundle(BUNDLE));
 	public static final String FILE_NAME = "filename";
 

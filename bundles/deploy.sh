@@ -6,4 +6,4 @@ git clone git://github.com/lobid/lodmill.git lodmill-dependency
 cd lodmill-dependency/lodmill-rd
 mvn clean assembly:assembly -q --settings ../settings.xml
 jar uf $JAR -C $RES metaflow-pipe.properties -C $RES metastream-encoders.properties
-cp $JAR ../../metafacture-ide/metatext/org.lobid.metatext/
+cp $JAR ../../metafacture-ide/bundles/org.culturegraph.mf.ide/

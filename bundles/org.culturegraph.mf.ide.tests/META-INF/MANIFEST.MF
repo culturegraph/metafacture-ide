@@ -3,10 +3,10 @@ Bundle-ManifestVersion: 2
 Bundle-Name: org.lobid.metatext.tests
 Bundle-Vendor: My Company
 Bundle-Version: 0.1.0.qualifier
-Bundle-SymbolicName: org.lobid.metatext.tests; singleton:=true
+Bundle-SymbolicName: org.culturegraph.mf.ide.tests;singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.lobid.metatext,
- org.lobid.metatext.ui,
+Require-Bundle: org.culturegraph.mf.ide,
+ org.culturegraph.mf.ide.ui,
  org.eclipse.core.runtime,
  org.eclipse.xtext.junit4,
  org.eclipse.ui.workbench;resolution:=optional

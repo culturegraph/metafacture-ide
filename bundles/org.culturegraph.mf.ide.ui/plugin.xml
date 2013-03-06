@@ -243,7 +243,7 @@
             point="org.eclipse.ui.ide.markerResolution">
         <markerResolutionGenerator
             class="org.lobid.metatext.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-            markerType="org.lobid.metatext.ui.metatext.check.fast">
+            markerType="org.culturegraph.mf.ide.ui.metatext.check.fast">
             <attribute
                 name="FIXABLE_KEY"
                 value="true">
@@ -251,7 +251,7 @@
         </markerResolutionGenerator>
         <markerResolutionGenerator
             class="org.lobid.metatext.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-            markerType="org.lobid.metatext.ui.metatext.check.normal">
+            markerType="org.culturegraph.mf.ide.ui.metatext.check.normal">
             <attribute
                 name="FIXABLE_KEY"
                 value="true">
@@ -259,7 +259,7 @@
         </markerResolutionGenerator>
         <markerResolutionGenerator
             class="org.lobid.metatext.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-            markerType="org.lobid.metatext.ui.metatext.check.expensive">
+            markerType="org.culturegraph.mf.ide.ui.metatext.check.expensive">
             <attribute
                 name="FIXABLE_KEY"
                 value="true">

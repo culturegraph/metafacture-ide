@@ -4,14 +4,12 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.lobid</groupId>
-		<artifactId>metatext</artifactId>
+		<groupId>org.culturegraph.mf</groupId>
+		<artifactId>ide</artifactId>
 		<version>0.1.0-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
-	<groupId>org.lobid</groupId>
-	<artifactId>org.lobid.metatext.p2</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<artifactId>org.culturegraph.mf.ide.p2</artifactId>
 	<packaging>eclipse-repository</packaging>
 	<build>
 		<plugins>
@@ -44,7 +42,7 @@
 				<configuration>
 					<products>
 						<product>
-							<id>org.lobid.metatext.p2</id>
+							<id>org.culturegraph.mf.ide.p2</id>
 						</product>
 					</products>
 				</configuration>
