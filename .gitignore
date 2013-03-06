@@ -7,8 +7,6 @@ tmp
 dist
 test.*
 *.dot*
-.project
-.settings
 plugin.xml_gen
 *-gen
 *.jar
