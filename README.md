@@ -1,2 +1,0 @@
-metafacture-ide
-===============

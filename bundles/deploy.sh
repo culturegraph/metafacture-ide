@@ -4,6 +4,7 @@ export RES=src/main/resources
 cd ../..
 git clone git://github.com/lobid/lodmill.git lodmill-dependency
 cd lodmill-dependency/lodmill-rd
+git pull origin master
 mvn clean assembly:assembly -q --settings ../settings.xml
 jar uf $JAR -C $RES metaflow-pipe.properties -C $RES metastream-encoders.properties
 cp $JAR ../../metafacture-ide/bundles/org.culturegraph.mf.ide/
