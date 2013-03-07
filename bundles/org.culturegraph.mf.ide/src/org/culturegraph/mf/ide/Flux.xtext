@@ -1,6 +1,6 @@
-grammar org.culturegraph.mf.ide.Metatext with org.eclipse.xtext.common.Terminals
+grammar org.culturegraph.mf.ide.Flux with org.eclipse.xtext.common.Terminals
 
-generate metatext "http://www.lobid.org/metatext/Metatext"
+generate flux "http://www.culturegraph.org/metafacture/Flux"
 
 Metaflow : vars += VarDef* flow = Mainflow ;
 

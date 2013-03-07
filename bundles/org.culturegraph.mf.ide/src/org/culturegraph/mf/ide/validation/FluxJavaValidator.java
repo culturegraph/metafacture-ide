@@ -1,9 +1,9 @@
 package org.culturegraph.mf.ide.validation;
 
-import org.culturegraph.mf.ide.validation.AbstractMetatextJavaValidator;
+import org.culturegraph.mf.ide.validation.AbstractFluxJavaValidator;
  
 
-public class MetatextJavaValidator extends AbstractMetatextJavaValidator {
+public class FluxJavaValidator extends AbstractFluxJavaValidator {
 
 //	@Check
 //	public void checkGreetingStartsWithCapital(Greeting greeting) {

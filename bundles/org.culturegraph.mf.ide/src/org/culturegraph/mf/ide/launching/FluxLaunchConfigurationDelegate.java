@@ -22,7 +22,7 @@ import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.PlatformUI;
 
-public class MetatextLaunchConfigurationDelegate implements
+public class FluxLaunchConfigurationDelegate implements
 		ILaunchConfigurationDelegate {
 
 	private static final String BUNDLE = "org.culturegraph.mf.ide";
@@ -33,7 +33,7 @@ public class MetatextLaunchConfigurationDelegate implements
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
 		System.out.println("Launching... config attributes: "
 				+ configuration.getAttributes());
-		monitor.beginTask("Metatext Workflow", 10);
+		monitor.beginTask("Flux Workflow", 10);
 		final String file = configuration.getAttribute(FILE_NAME, "");
 		IResource member = ResourcesPlugin.getWorkspace().getRoot()
 				.findMember(file);

@@ -21,4 +21,4 @@ Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.culturegraph.mf.ide.ui.contentassist,
  org.culturegraph.mf.ide.ui.contentassist.antlr,
  org.culturegraph.mf.ide.ui.internal
-Bundle-Activator: org.culturegraph.mf.ide.ui.internal.MetatextActivator
+Bundle-Activator: org.culturegraph.mf.ide.ui.internal.FluxActivator

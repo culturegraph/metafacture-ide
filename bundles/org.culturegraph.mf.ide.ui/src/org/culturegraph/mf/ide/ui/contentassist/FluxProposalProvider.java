@@ -3,10 +3,10 @@
 */
 package org.culturegraph.mf.ide.ui.contentassist;
 
-import org.culturegraph.mf.ide.ui.contentassist.AbstractMetatextProposalProvider;
+import org.culturegraph.mf.ide.ui.contentassist.AbstractFluxProposalProvider;
 /**
  * see http://www.eclipse.org/Xtext/documentation/latest/xtext.html#contentAssist on how to customize content assistant
  */
-public class MetatextProposalProvider extends AbstractMetatextProposalProvider {
+public class FluxProposalProvider extends AbstractFluxProposalProvider {
 
 }

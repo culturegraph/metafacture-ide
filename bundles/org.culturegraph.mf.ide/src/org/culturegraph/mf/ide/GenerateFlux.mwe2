@@ -1,10 +1,10 @@
-module org.culturegraph.mf.ide.GenerateMetatext
+module org.culturegraph.mf.ide.GenerateFlux
 
 import org.eclipse.emf.mwe.utils.*
 import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
 
-var grammarURI = "classpath:/org/culturegraph/mf/ide/Metatext.xtext"
+var grammarURI = "classpath:/org/culturegraph/mf/ide/Flux.xtext"
 var file.extensions = "flux"
 var projectName = "org.culturegraph.mf.ide"
 var runtimeProject = "../${projectName}"

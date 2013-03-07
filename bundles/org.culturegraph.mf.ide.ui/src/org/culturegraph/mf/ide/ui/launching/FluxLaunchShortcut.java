@@ -5,7 +5,7 @@ package org.culturegraph.mf.ide.ui.launching;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.culturegraph.mf.ide.launching.MetatextLaunchConfigurationDelegate;
+import org.culturegraph.mf.ide.launching.FluxLaunchConfigurationDelegate;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.DebugPlugin;
@@ -25,7 +25,7 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.eclipse.ui.part.FileEditorInput;
 
-public class MetatextLaunchShortcut implements ILaunchShortcut {
+public class FluxLaunchShortcut implements ILaunchShortcut {
 
 	public void launch(ISelection selection, String mode) {
 		IStructuredSelection ss = (IStructuredSelection) selection;
@@ -66,7 +66,7 @@ public class MetatextLaunchShortcut implements ILaunchShortcut {
 			ILaunchConfigurationWorkingCopy wc = launchConfigType.newInstance(
 					null, DebugPlugin.getDefault().getLaunchManager()
 							.generateLaunchConfigurationName(file.getName()));
-			wc.setAttribute(MetatextLaunchConfigurationDelegate.FILE_NAME, file
+			wc.setAttribute(FluxLaunchConfigurationDelegate.FILE_NAME, file
 					.getFullPath().toOSString());
 			config = wc.doSave();
 		} else {
@@ -81,7 +81,7 @@ public class MetatextLaunchShortcut implements ILaunchShortcut {
 		List<ILaunchConfiguration> configList = new ArrayList<ILaunchConfiguration>();
 		for (ILaunchConfiguration launchConfiguration : configs) {
 			if (launchConfiguration.getAttribute(
-					MetatextLaunchConfigurationDelegate.FILE_NAME, "").equals(
+					FluxLaunchConfigurationDelegate.FILE_NAME, "").equals(
 					file.getFullPath().toOSString())) {
 				configList.add(launchConfiguration);
 			}

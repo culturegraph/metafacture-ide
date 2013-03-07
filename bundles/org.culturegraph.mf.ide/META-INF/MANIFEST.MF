@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: org.lobid.metatext
-Bundle-Vendor: My Company
+Bundle-Name: org.culturegraph.mf.ide
+Bundle-Vendor: Culturegraph
 Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: org.culturegraph.mf.ide;singleton:=true
 Bundle-ActivationPolicy: lazy
@@ -27,14 +27,13 @@ Export-Package: org.culturegraph.mf.ide,
  org.culturegraph.mf.ide.formatting,
  org.culturegraph.mf.ide.generator,
  org.culturegraph.mf.ide.launching,
- org.culturegraph.mf.ide.metatext,
- org.culturegraph.mf.ide.metatext.impl,
- org.culturegraph.mf.ide.metatext.util,
  org.culturegraph.mf.ide.parser.antlr,
  org.culturegraph.mf.ide.parser.antlr.internal,
  org.culturegraph.mf.ide.scoping,
  org.culturegraph.mf.ide.serializer,
  org.culturegraph.mf.ide.services,
- org.culturegraph.mf.ide.validation
-Bundle-ClassPath: lodmill-rd-0.1.0-SNAPSHOT-jar-with-dependencies.jar,
- .
+ org.culturegraph.mf.ide.validation,
+ org.culturegraph.mf.ide.flux,
+ org.culturegraph.mf.ide.flux.impl,
+ org.culturegraph.mf.ide.flux.util
+Bundle-ClassPath: lodmill-rd-0.1.0-SNAPSHOT-jar-with-dependencies.jar,.

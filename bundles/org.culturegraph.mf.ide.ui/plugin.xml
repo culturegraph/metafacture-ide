@@ -6,42 +6,42 @@
     <extension
             point="org.eclipse.ui.editors">
         <editor
-            class="org.culturegraph.mf.ide.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+            class="org.culturegraph.mf.ide.ui.FluxExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
             contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
             default="true"
             extensions="flux"
-            id="org.culturegraph.mf.ide.Metatext"
-            name="Metatext Editor">
+            id="org.culturegraph.mf.ide.Flux"
+            name="Flux Editor">
         </editor>
     </extension>
     <extension
         point="org.eclipse.ui.handlers">
         <handler
-            class="org.culturegraph.mf.ide.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+            class="org.culturegraph.mf.ide.ui.FluxExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
             commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
             <activeWhen>
                 <reference
-                    definitionId="org.culturegraph.mf.ide.Metatext.Editor.opened">
+                    definitionId="org.culturegraph.mf.ide.Flux.Editor.opened">
                 </reference>
             </activeWhen>
         </handler>
         <handler
-            class="org.culturegraph.mf.ide.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
-            commandId="org.culturegraph.mf.ide.Metatext.validate">
+            class="org.culturegraph.mf.ide.ui.FluxExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
+            commandId="org.culturegraph.mf.ide.Flux.validate">
          <activeWhen>
             <reference
-                    definitionId="org.culturegraph.mf.ide.Metatext.Editor.opened">
+                    definitionId="org.culturegraph.mf.ide.Flux.Editor.opened">
             </reference>
          </activeWhen>
       </handler>
     </extension>
     <extension point="org.eclipse.core.expressions.definitions">
-        <definition id="org.culturegraph.mf.ide.Metatext.Editor.opened">
+        <definition id="org.culturegraph.mf.ide.Flux.Editor.opened">
             <and>
                 <reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
                 <with variable="activeEditor">
                     <test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName" 
-                        value="org.culturegraph.mf.ide.Metatext" 
+                        value="org.culturegraph.mf.ide.Flux" 
                         forcePluginActivation="true"/>
                 </with>        
             </and>
@@ -50,33 +50,33 @@
     <extension
             point="org.eclipse.ui.preferencePages">
         <page
-            class="org.culturegraph.mf.ide.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-            id="org.culturegraph.mf.ide.Metatext"
-            name="Metatext">
-            <keywordReference id="org.culturegraph.mf.ide.ui.keyword_Metatext"/>
+            class="org.culturegraph.mf.ide.ui.FluxExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="org.culturegraph.mf.ide.Flux"
+            name="Metafacture Flux">
+            <keywordReference id="org.culturegraph.mf.ide.ui.keyword_Flux"/>
         </page>
         <page
-            category="org.culturegraph.mf.ide.Metatext"
-            class="org.culturegraph.mf.ide.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
-            id="org.culturegraph.mf.ide.Metatext.coloring"
+            category="org.culturegraph.mf.ide.Flux"
+            class="org.culturegraph.mf.ide.ui.FluxExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+            id="org.culturegraph.mf.ide.Flux.coloring"
             name="Syntax Coloring">
-            <keywordReference id="org.culturegraph.mf.ide.ui.keyword_Metatext"/>
+            <keywordReference id="org.culturegraph.mf.ide.ui.keyword_Flux"/>
         </page>
         <page
-            category="org.culturegraph.mf.ide.Metatext"
-            class="org.culturegraph.mf.ide.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
-            id="org.culturegraph.mf.ide.Metatext.templates"
+            category="org.culturegraph.mf.ide.Flux"
+            class="org.culturegraph.mf.ide.ui.FluxExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+            id="org.culturegraph.mf.ide.Flux.templates"
             name="Templates">
-            <keywordReference id="org.culturegraph.mf.ide.ui.keyword_Metatext"/>
+            <keywordReference id="org.culturegraph.mf.ide.ui.keyword_Flux"/>
         </page>
     </extension>
     <extension
             point="org.eclipse.ui.propertyPages">
         <page
-            class="org.culturegraph.mf.ide.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-            id="org.culturegraph.mf.ide.Metatext"
-            name="Metatext">
-            <keywordReference id="org.culturegraph.mf.ide.ui.keyword_Metatext"/>
+            class="org.culturegraph.mf.ide.ui.FluxExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="org.culturegraph.mf.ide.Flux"
+            name="Metafacture Flux">
+            <keywordReference id="org.culturegraph.mf.ide.ui.keyword_Flux"/>
             <enabledWhen>
 	            <adapt type="org.eclipse.core.resources.IProject"/>
 			</enabledWhen>
@@ -86,14 +86,14 @@
     <extension
         point="org.eclipse.ui.keywords">
         <keyword
-            id="org.culturegraph.mf.ide.ui.keyword_Metatext"
-            label="Metatext"/>
+            id="org.culturegraph.mf.ide.ui.keyword_Flux"
+            label="Metafacture Flux"/>
     </extension>
     <extension
          point="org.eclipse.ui.commands">
       <command
             description="Trigger expensive validation"
-            id="org.culturegraph.mf.ide.Metatext.validate"
+            id="org.culturegraph.mf.ide.Flux.validate"
             name="Validate">
       </command>
     </extension>
@@ -101,12 +101,12 @@
         <menuContribution
             locationURI="popup:#TextEditorContext?after=group.edit">
              <command
-                 commandId="org.culturegraph.mf.ide.Metatext.validate"
+                 commandId="org.culturegraph.mf.ide.Flux.validate"
                  style="push"
                  tooltip="Trigger expensive validation">
             <visibleWhen checkEnabled="false">
                 <reference
-                    definitionId="org.culturegraph.mf.ide.Metatext.Editor.opened">
+                    definitionId="org.culturegraph.mf.ide.Flux.Editor.opened">
                 </reference>
             </visibleWhen>
          </command>  
@@ -116,7 +116,7 @@
 		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
 			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
 				<visibleWhen checkEnabled="false">
-                	<reference definitionId="org.culturegraph.mf.ide.Metatext.Editor.opened">
+                	<reference definitionId="org.culturegraph.mf.ide.Flux.Editor.opened">
                 	</reference>
             	</visibleWhen>
 			</command>
@@ -124,11 +124,11 @@
 	</extension>
 	<extension point="org.eclipse.ui.handlers">
 	    <handler
-            class="org.culturegraph.mf.ide.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+            class="org.culturegraph.mf.ide.ui.FluxExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
             commandId="org.eclipse.xtext.ui.editor.FindReferences">
             <activeWhen>
                 <reference
-                    definitionId="org.culturegraph.mf.ide.Metatext.Editor.opened">
+                    definitionId="org.culturegraph.mf.ide.Flux.Editor.opened">
                 </reference>
             </activeWhen>
         </handler>
@@ -139,36 +139,36 @@
 	<extension
 		point="org.eclipse.emf.ecore.extension_parser">
 		<parser
-			class="org.culturegraph.mf.ide.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			class="org.culturegraph.mf.ide.ui.FluxExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
 			type="flux">
 		</parser>
 	</extension>
 	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
         <resourceServiceProvider
-            class="org.culturegraph.mf.ide.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+            class="org.culturegraph.mf.ide.ui.FluxExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
             uriExtension="flux">
         </resourceServiceProvider>
     </extension>
 
 
-    <!-- marker definitions for org.culturegraph.mf.ide.Metatext -->
+    <!-- marker definitions for org.culturegraph.mf.ide.Flux -->
     <extension
-            id="metatext.check.fast"
-            name="Metatext Problem"
+            id="flux.check.fast"
+            name="Flux Problem"
             point="org.eclipse.core.resources.markers">
         <super type="org.eclipse.xtext.ui.check.fast"/>
         <persistent value="true"/>
     </extension>
     <extension
-            id="metatext.check.normal"
-            name="Metatext Problem"
+            id="flux.check.normal"
+            name="Flux Problem"
             point="org.eclipse.core.resources.markers">
         <super type="org.eclipse.xtext.ui.check.normal"/>
         <persistent value="true"/>
     </extension>
     <extension
-            id="metatext.check.expensive"
-            name="Metatext Problem"
+            id="flux.check.expensive"
+            name="Flux Problem"
             point="org.eclipse.core.resources.markers">
         <super type="org.eclipse.xtext.ui.check.expensive"/>
         <persistent value="true"/>
@@ -177,27 +177,27 @@
    <extension
          point="org.eclipse.xtext.builder.participant">
       <participant
-            class="org.culturegraph.mf.ide.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
+            class="org.culturegraph.mf.ide.ui.FluxExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
       </participant>
    </extension>
    <extension
             point="org.eclipse.ui.preferencePages">
         <page
-            category="org.culturegraph.mf.ide.Metatext"
-            class="org.culturegraph.mf.ide.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
-            id="org.culturegraph.mf.ide.Metatext.compiler.preferencePage"
+            category="org.culturegraph.mf.ide.Flux"
+            class="org.culturegraph.mf.ide.ui.FluxExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+            id="org.culturegraph.mf.ide.Flux.compiler.preferencePage"
             name="Compiler">
-            <keywordReference id="org.culturegraph.mf.ide.ui.keyword_Metatext"/>
+            <keywordReference id="org.culturegraph.mf.ide.ui.keyword_Flux"/>
         </page>
     </extension>
     <extension
             point="org.eclipse.ui.propertyPages">
         <page
-            category="org.culturegraph.mf.ide.Metatext"
-            class="org.culturegraph.mf.ide.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
-            id="org.culturegraph.mf.ide.Metatext.compiler.propertyPage"
+            category="org.culturegraph.mf.ide.Flux"
+            class="org.culturegraph.mf.ide.ui.FluxExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+            id="org.culturegraph.mf.ide.Flux.compiler.propertyPage"
             name="Compiler">
-            <keywordReference id="org.culturegraph.mf.ide.ui.keyword_Metatext"/>
+            <keywordReference id="org.culturegraph.mf.ide.ui.keyword_Flux"/>
             <enabledWhen>
 	            <adapt type="org.eclipse.core.resources.IProject"/>
 			</enabledWhen>
@@ -209,11 +209,11 @@
 	<extension
 		point="org.eclipse.ui.handlers">
 		<handler 
-			class="org.culturegraph.mf.ide.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
+			class="org.culturegraph.mf.ide.ui.FluxExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
 			commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline">
 			<activeWhen>
 				<reference
-					definitionId="org.culturegraph.mf.ide.Metatext.Editor.opened">
+					definitionId="org.culturegraph.mf.ide.Flux.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -233,33 +233,33 @@
 				style="push"
 				tooltip="Open Quick Outline">
 				<visibleWhen checkEnabled="false">
-					<reference definitionId="org.culturegraph.mf.ide.Metatext.Editor.opened"/>
+					<reference definitionId="org.culturegraph.mf.ide.Flux.Editor.opened"/>
 				</visibleWhen>
 			</command>
 		</menuContribution>
 	</extension>
-    <!-- quickfix marker resolution generator for org.culturegraph.mf.ide.Metatext -->
+    <!-- quickfix marker resolution generator for org.culturegraph.mf.ide.Flux -->
     <extension
             point="org.eclipse.ui.ide.markerResolution">
         <markerResolutionGenerator
-            class="org.culturegraph.mf.ide.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-            markerType="org.culturegraph.mf.ide.ui.metatext.check.fast">
+            class="org.culturegraph.mf.ide.ui.FluxExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="org.culturegraph.mf.ide.ui.flux.check.fast">
             <attribute
                 name="FIXABLE_KEY"
                 value="true">
             </attribute>
         </markerResolutionGenerator>
         <markerResolutionGenerator
-            class="org.culturegraph.mf.ide.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-            markerType="org.culturegraph.mf.ide.ui.metatext.check.normal">
+            class="org.cultureFlux.ide.ui.FluxExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="org.culturegraph.mf.ide.ui.flux.check.normal">
             <attribute
                 name="FIXABLE_KEY"
                 value="true">
             </attribute>
         </markerResolutionGenerator>
         <markerResolutionGenerator
-            class="org.culturegraph.mf.ide.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-            markerType="org.culturegraph.mf.ide.ui.metatext.check.expensive">
+            class="org.culturegraph.mf.ide.ui.FluxExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="org.culturegraph.mf.ide.ui.flux.check.expensive">
             <attribute
                 name="FIXABLE_KEY"
                 value="true">
@@ -269,11 +269,11 @@
    	<!-- Rename Refactoring -->
 	<extension point="org.eclipse.ui.handlers">
 		<handler 
-			class="org.culturegraph.mf.ide.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.IRenameElementHandler"
+			class="org.culturegraph.mf.ide.ui.FluxExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.IRenameElementHandler"
 			commandId="org.eclipse.xtext.ui.refactoring.RenameElement">
 			<activeWhen>
 				<reference
-					definitionId="org.culturegraph.mf.ide.Metatext.Editor.opened">
+					definitionId="org.culturegraph.mf.ide.Flux.Editor.opened">
 				</reference>
 			</activeWhen>
 		</handler>
@@ -285,7 +285,7 @@
                style="push">
             <visibleWhen checkEnabled="false">
                <reference
-                     definitionId="org.culturegraph.mf.ide.Metatext.Editor.opened">
+                     definitionId="org.culturegraph.mf.ide.Flux.Editor.opened">
                </reference>
             </visibleWhen>
          </command>
@@ -293,29 +293,29 @@
    </extension>
    <extension point="org.eclipse.ui.preferencePages">
 	    <page
-	        category="org.culturegraph.mf.ide.Metatext"
-	        class="org.culturegraph.mf.ide.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
-	        id="org.culturegraph.mf.ide.Metatext.refactoring"
+	        category="org.culturegraph.mf.ide.Flux"
+	        class="org.culturegraph.mf.ide.ui.FluxExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
+	        id="org.culturegraph.mf.ide.Flux.refactoring"
 	        name="Refactoring">
-	        <keywordReference id="org.culturegraph.mf.ide.ui.keyword_Metatext"/>
+	        <keywordReference id="org.culturegraph.mf.ide.ui.keyword_Flux"/>
 	    </page>
 	</extension>
 
   <extension point="org.eclipse.compare.contentViewers">
-    <viewer id="org.culturegraph.mf.ide.Metatext.compare.contentViewers"
-            class="org.culturegraph.mf.ide.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+    <viewer id="org.culturegraph.mf.ide.Flux.compare.contentViewers"
+            class="org.culturegraph.mf.ide.ui.FluxExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
             extensions="flux">
     </viewer>
   </extension>
   <extension point="org.eclipse.compare.contentMergeViewers">
-    <viewer id="org.culturegraph.mf.ide.Metatext.compare.contentMergeViewers"
-            class="org.culturegraph.mf.ide.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-            extensions="flux" label="Metatext Compare">
+    <viewer id="org.culturegraph.mf.ide.Flux.compare.contentMergeViewers"
+            class="org.culturegraph.mf.ide.ui.FluxExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+            extensions="flux" label="Flux Compare">
      </viewer>
   </extension>
   <extension point="org.eclipse.ui.editors.documentProviders">
-    <provider id="org.culturegraph.mf.ide.Metatext.editors.documentProviders"
-            class="org.culturegraph.mf.ide.ui.MetatextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
+    <provider id="org.culturegraph.mf.ide.Flux.editors.documentProviders"
+            class="org.culturegraph.mf.ide.ui.FluxExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
             extensions="flux">
     </provider>
   </extension>
@@ -331,7 +331,7 @@
   <extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
         <launchConfigurationTabGroup
             type="org.culturegraph.mf.ide.launching"
-            class="org.culturegraph.mf.ide.ui.launching.MetatextTabGroup"
+            class="org.culturegraph.mf.ide.ui.launching.FluxTabGroup"
             id="org.culturegraph.mf.ide.launching.launchConfigurationTabGroup">
         </launchConfigurationTabGroup>
    </extension>
@@ -339,8 +339,8 @@
    <extension point="org.eclipse.debug.ui.launchShortcuts">
         <shortcut
             id="org.culturegraph.mf.ide.ui.launching.shortcut"
-            class="org.culturegraph.mf.ide.ui.launching.MetatextLaunchShortcut"
-            label="Metatext Workflow"
+            class="org.culturegraph.mf.ide.ui.launching.FluxLaunchShortcut"
+            label="Flux Workflow"
             icon="icons/source.gif"
             modes="run">
             <contextualLaunch>

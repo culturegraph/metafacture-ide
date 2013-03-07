@@ -7,7 +7,7 @@ import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
 import org.eclipse.swt.widgets.Composite;
 
-public class MetatextMainTab extends AbstractLaunchConfigurationTab {
+public class FluxMainTab extends AbstractLaunchConfigurationTab {
 
 	public void createControl(Composite parent) {
 	}

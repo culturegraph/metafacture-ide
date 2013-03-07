@@ -6,6 +6,6 @@ package org.culturegraph.mf.ide;
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
-public class MetatextRuntimeModule extends org.culturegraph.mf.ide.AbstractMetatextRuntimeModule {
+public class FluxRuntimeModule extends org.culturegraph.mf.ide.AbstractFluxRuntimeModule {
 
 }

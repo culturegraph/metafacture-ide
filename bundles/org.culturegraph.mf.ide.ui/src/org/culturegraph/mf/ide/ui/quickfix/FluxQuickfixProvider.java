@@ -3,7 +3,7 @@ package org.culturegraph.mf.ide.ui.quickfix;
 
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider;
 
-public class MetatextQuickfixProvider extends DefaultQuickfixProvider {
+public class FluxQuickfixProvider extends DefaultQuickfixProvider {
 
 //	@Fix(MyJavaValidator.INVALID_NAME)
 //	public void capitalizeName(final Issue issue, IssueResolutionAcceptor acceptor) {

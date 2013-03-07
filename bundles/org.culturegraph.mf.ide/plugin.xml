@@ -5,41 +5,29 @@
 
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
-       uri = "http://www.lobid.org/metatext/Metatext" 
-       class = "org.culturegraph.mf.ide.metatext.MetatextPackage"
-       genModel = "org/lobid/metatext/Metatext.genmodel" /> 
-	
+       uri = "http://www.culturegraph.org/metafacture/Flux" 
+       class = "org.culturegraph.mf.ide.flux.FluxPackage"
+       genModel = "org/culturegraph/mf/ide/Flux.genmodel" /> 
   </extension>
 
   <extension point="org.eclipse.debug.core.launchConfigurationTypes">
     <launchConfigurationType
-        name="Metatext"
-        delegate="org.culturegraph.mf.ide.launching.MetatextLaunchConfigurationDelegate"
+        name="Metafacture Flux"
+        delegate="org.culturegraph.mf.ide.launching.FluxLaunchConfigurationDelegate"
         modes="run"
         id="org.culturegraph.mf.ide.launching">
     </launchConfigurationType>
   </extension>
-  <extension
-        id="org.lobid.metatext.product"
-        point="org.eclipse.core.runtime.products">
-     <product
-           application="org.eclipse.ui.ide.workbench"
-           name="Metatext">
-        <property
-              name="appName"
-              value="Metatext">
-        </property>
-     </product>
-  </extension>
+
   <extension
         id="product"
         point="org.eclipse.core.runtime.products">
      <product
            application="org.eclipse.ui.ide.workbench"
-           name="Metatext">
+           name="Metafacture-IDE">
         <property
               name="appName"
-              value="Metatext">
+              value="Metafacture-IDE">
         </property>
      </product>
   </extension>
