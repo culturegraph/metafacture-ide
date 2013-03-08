@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.culturegraph.mf.ide.sdk"
+      label="Metafacture IDE"
+      version="0.1.0.qualifier">
+
+   <includes
+         id="org.eclipse.gef4.zest.sdk"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.culturegraph.mf.ide"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.culturegraph.mf.ide.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

@@ -1,6 +1,13 @@
+target
+bin
 *.class
-
-# Package Files #
+logs
+tmp
+.history
+dist
+test.*
+*.dot*
+plugin.xml_gen
+*-gen
 *.jar
-*.war
-*.ear
+*.*~
