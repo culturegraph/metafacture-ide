@@ -1,0 +1,33 @@
+grammar org.culturegraph.mf.ide.Flux with org.eclipse.xtext.common.Terminals
+
+generate flux "http://www.culturegraph.org/metafacture/Flux"
+
+Metaflow : vars += VarDef* flow = Mainflow ;
+
+VarDef : (default ?= 'default')? id = ID '=' exp = Exp ';' ;
+
+Mainflow : (StdIn | Exp) '|' flow = Flow ';' ;
+
+Tee : ('{' flows += Flow '}')+ ;
+
+Flow : (pipes += Pipe | tees += Tee) ('|' (pipes += Pipe | tees += Tee))* ;
+
+StdIn : '>' ;
+
+Pipe : qn = QualifiedName ('(' args = PipeArgs ')')? ;
+
+Exp : Atom ('+' Atom)* ;
+
+Atom : STRING | ID ;
+
+PipeArgs : {PipeArgs}
+	(Exp | Exp ',' VarRef | VarRef | args += NamedArg) (',' args += NamedArg)* ;
+
+NamedArg : ID '=' exp=Exp ;
+
+QualifiedName : ids += ID ('.' ids += ID)* ;
+
+VarRef : '*' ;
+
+terminal ID : 
+  '^'?('a'..'z'|'A'..'Z'|'_')('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'-')* ;
