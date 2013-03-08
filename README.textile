@@ -73,18 +73,18 @@ h2. Flux
 Finally, we create the Flux file: create a file (_File_ -> _New_) called @sample.flux@ with the following content:
 
 bc. 
-default files = ".";
-default output = "file://" + files;
+default files = FLUX_DIR;
 files + "input.xml" |
-open("file") |
-read("marcxml") |
+open-file |
+decode-xml |
+handle-marcxml |
 morph(files + "morph.xml") |
 stream-tee | {
-	encode("n-triples") |
-	write(output + "output.nt")
+	encode-ntriples |
+	write(files + "output.nt")
 }{
-	encode("dot") |
-	write(output + "output.dot")
+	encode-dot |
+	write(files + "output.dot")
 };
 
 You can also download this file from "https://github.com/culturegraph/metafacture-ide/raw/master/samples/sample.flux":https://github.com/culturegraph/metafacture-ide/raw/master/samples/sample.flux. For advanced workflow definitions have a look at the "Metafacture wiki":https://github.com/culturegraph/metafacture-core/wiki and "samples":https://github.com/culturegraph/metafacture-core/tree/master/examples.
@@ -107,7 +107,6 @@ bc.
 <http://lobid.org/zvdd/hbz/183999> <http://purl.org/dc/terms/language> "ger" .
 <http://lobid.org/zvdd/hbz/183999> <http://iflastandards.info/ns/isbd/elements/P1004> "Kunst und Kunstgewerbe auf der Wiener Weltausstellung 1873" .
 <http://lobid.org/zvdd/hbz/183999> <http://lobid.org/vocab/lobid#fulltextOnline> <http://digi.ub.uni-heidelberg.de/diglit/luetzow1875> .
-
 
 The *.dot file should contain the following content:
 

@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-import org.culturegraph.metaflow.Metaflow;
+import org.culturegraph.mf.Flux;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -47,14 +47,14 @@ public class FluxLaunchConfigurationDelegate implements
 
 	private void runWorkflow(IProgressMonitor monitor, IResource member) {
 		if (!monitor.isCanceled()) {
-			File flowFile = new File(member.getLocationURI());
-			LOG.log(new Status(Status.INFO, BUNDLE, "Running file: " + flowFile));
+			File fluxFile = new File(member.getLocationURI());
+			LOG.log(new Status(Status.INFO, BUNDLE, "Running file: " + fluxFile));
 			try {
-				String flowWithAbsolutePaths = resolveDotInPaths(
-						flowFile.getAbsolutePath(), flowFile.getParent());
+				String fluxWithAbsolutePaths = resolveDotInPaths(
+						fluxFile.getAbsolutePath(), fluxFile.getParent());
 				LOG.log(new Status(Status.INFO, BUNDLE, "Resolved file: "
-						+ flowWithAbsolutePaths));
-				Metaflow.main(new String[] { "-f", flowWithAbsolutePaths });
+						+ fluxWithAbsolutePaths));
+				Flux.main(new String[] { fluxWithAbsolutePaths });
 			} catch (Exception e) {
 				e.printStackTrace();
 				LOG.log(new Status(Status.ERROR, BUNDLE, e.getMessage(), e));
@@ -68,16 +68,18 @@ public class FluxLaunchConfigurationDelegate implements
 		monitor.worked(7);
 	}
 
-	private String resolveDotInPaths(String flow, String parent)
+	private String resolveDotInPaths(String fluxFileAbsolutePath, String parent)
 			throws IOException {
-		String resolvedContent = read(flow)
+		final String originalContent = read(fluxFileAbsolutePath);
+		String resolvedContent = originalContent
 		/* just a dot, in a var: "." or "./" */
 		.replaceAll("\"\\./?\"", "\"" + parent + "/\"")
 		/* leading dot in a path: "./etc" */
 		.replaceAll("\"\\./", "\"" + parent + "/")
 		/* somewhat odd case, but supported by Metaflow: */
 		.replace("file://./", "file://" + parent + "/");
-		return write(resolvedContent).getAbsolutePath();
+		return originalContent.equals(resolvedContent) ? fluxFileAbsolutePath
+				: write(resolvedContent).getAbsolutePath();
 	}
 
 	private File write(String content) throws IOException {

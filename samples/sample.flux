@@ -1,14 +1,14 @@
-default files = ".";
-default output = "file://" + files;
+default files = FLUX_DIR;
 
 files + "input.xml" |
-open("file") |
-read("marcxml") |
+open-file |
+decode-xml |
+handle-marcxml |
 morph(files + "morph.xml") |
 stream-tee | {
-	encode("n-triples") |
-	write(output + "output.nt")
+	encode-ntriples |
+	write(files + "output.nt")
 }{
-	encode("dot") |
-	write(output + "output.dot")
+	encode-dot |
+	write(files + "output.dot")
 };
