@@ -43,13 +43,13 @@ public class FluxLaunchShortcut implements ILaunchShortcut {
 		System.out.println("Launching flow: " + file + " in mode " + mode);
 		try {
 			ILaunchConfigurationType launchConfigType = getLaunchConfigType();
-			ILaunchConfiguration[] configs = DebugPlugin.getDefault()
-					.getLaunchManager()
-					.getLaunchConfigurations(launchConfigType);
-			List<ILaunchConfiguration> configList = collectLaunchConfigs(file,
-					configs);
-			ILaunchConfiguration config = selectLaunchConfig(file, mode,
-					launchConfigType, configList);
+			ILaunchConfiguration[] configs =
+					DebugPlugin.getDefault().getLaunchManager()
+							.getLaunchConfigurations(launchConfigType);
+			List<ILaunchConfiguration> configList =
+					collectLaunchConfigs(file, configs);
+			ILaunchConfiguration config =
+					selectLaunchConfig(file, mode, launchConfigType, configList);
 			config.launch(mode, null);
 		} catch (CoreException e) {
 			e.printStackTrace();
@@ -63,9 +63,10 @@ public class FluxLaunchShortcut implements ILaunchShortcut {
 		if (configList.size() == 1) {
 			config = configList.get(0);
 		} else if (configList.size() == 0) {
-			ILaunchConfigurationWorkingCopy wc = launchConfigType.newInstance(
-					null, DebugPlugin.getDefault().getLaunchManager()
-							.generateLaunchConfigurationName(file.getName()));
+			ILaunchConfigurationWorkingCopy wc =
+					launchConfigType.newInstance(null,
+							DebugPlugin.getDefault().getLaunchManager()
+									.generateLaunchConfigurationName(file.getName()));
 			wc.setAttribute(FluxLaunchConfigurationDelegate.FILE_NAME, file
 					.getFullPath().toOSString());
 			config = wc.doSave();
@@ -78,7 +79,8 @@ public class FluxLaunchShortcut implements ILaunchShortcut {
 
 	private List<ILaunchConfiguration> collectLaunchConfigs(IFile file,
 			ILaunchConfiguration[] configs) throws CoreException {
-		List<ILaunchConfiguration> configList = new ArrayList<ILaunchConfiguration>();
+		List<ILaunchConfiguration> configList =
+				new ArrayList<ILaunchConfiguration>();
 		for (ILaunchConfiguration launchConfiguration : configs) {
 			if (launchConfiguration.getAttribute(
 					FluxLaunchConfigurationDelegate.FILE_NAME, "").equals(
@@ -96,11 +98,11 @@ public class FluxLaunchShortcut implements ILaunchShortcut {
 
 	protected ILaunchConfiguration chooseConfiguration(List<?> configList,
 			String mode) {
-		IDebugModelPresentation labelProvider = DebugUITools
-				.newDebugModelPresentation();
-		ElementListSelectionDialog dialog = new ElementListSelectionDialog(
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-				labelProvider);
+		IDebugModelPresentation labelProvider =
+				DebugUITools.newDebugModelPresentation();
+		ElementListSelectionDialog dialog =
+				new ElementListSelectionDialog(PlatformUI.getWorkbench()
+						.getActiveWorkbenchWindow().getShell(), labelProvider);
 		dialog.setElements(configList.toArray());
 		dialog.setTitle("Select Launch Configuration");
 		dialog.setMessage("Select Launch Configuration");

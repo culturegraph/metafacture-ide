@@ -35,8 +35,8 @@ public class FluxLaunchConfigurationDelegate implements
 				+ configuration.getAttributes());
 		monitor.beginTask("Flux Workflow", 10);
 		final String file = configuration.getAttribute(FILE_NAME, "");
-		IResource member = ResourcesPlugin.getWorkspace().getRoot()
-				.findMember(file);
+		IResource member =
+				ResourcesPlugin.getWorkspace().getRoot().findMember(file);
 		monitor.worked(3);
 		monitor.subTask("Running Workflow");
 		runWorkflow(monitor, member);
@@ -50,8 +50,8 @@ public class FluxLaunchConfigurationDelegate implements
 			File fluxFile = new File(member.getLocationURI());
 			LOG.log(new Status(Status.INFO, BUNDLE, "Running file: " + fluxFile));
 			try {
-				String fluxWithAbsolutePaths = resolveDotInPaths(
-						fluxFile.getAbsolutePath(), fluxFile.getParent());
+				String fluxWithAbsolutePaths =
+						resolveDotInPaths(fluxFile.getAbsolutePath(), fluxFile.getParent());
 				LOG.log(new Status(Status.INFO, BUNDLE, "Resolved file: "
 						+ fluxWithAbsolutePaths));
 				Flux.main(new String[] { fluxWithAbsolutePaths });
@@ -60,9 +60,8 @@ public class FluxLaunchConfigurationDelegate implements
 				LOG.log(new Status(Status.ERROR, BUNDLE, e.getMessage(), e));
 				Throwable rootCause = findRootCause(e);
 				MessageDialog.openError(PlatformUI.getWorkbench()
-						.getActiveWorkbenchWindow().getShell(),
-						"Workflow Error", rootCause.getMessage()
-								+ " (see error log for details).");
+						.getActiveWorkbenchWindow().getShell(), "Workflow Error",
+						rootCause.getMessage() + " (see error log for details).");
 			}
 		}
 		monitor.worked(7);
