@@ -250,7 +250,7 @@
             </attribute>
         </markerResolutionGenerator>
         <markerResolutionGenerator
-            class="org.cultureFlux.ide.ui.FluxExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            class="org.culturegraph.mf.ide.ui.FluxExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
             markerType="org.culturegraph.mf.ide.ui.flux.check.normal">
             <attribute
                 name="FIXABLE_KEY"
