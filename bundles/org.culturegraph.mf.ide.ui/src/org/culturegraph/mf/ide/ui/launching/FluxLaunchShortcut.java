@@ -27,12 +27,14 @@ import org.eclipse.ui.part.FileEditorInput;
 
 public class FluxLaunchShortcut implements ILaunchShortcut {
 
+	@Override
 	public void launch(ISelection selection, String mode) {
 		IStructuredSelection ss = (IStructuredSelection) selection;
 		Object element = ss.getFirstElement();
 		launchFlow((IFile) element, mode);
 	}
 
+	@Override
 	public void launch(IEditorPart editor, String mode) {
 		IEditorInput input = editor.getEditorInput();
 		FileEditorInput fei = (FileEditorInput) input;
@@ -49,14 +51,14 @@ public class FluxLaunchShortcut implements ILaunchShortcut {
 			List<ILaunchConfiguration> configList =
 					collectLaunchConfigs(file, configs);
 			ILaunchConfiguration config =
-					selectLaunchConfig(file, mode, launchConfigType, configList);
+					selectLaunchConfig(file, launchConfigType, configList);
 			config.launch(mode, null);
 		} catch (CoreException e) {
 			e.printStackTrace();
 		}
 	}
 
-	private ILaunchConfiguration selectLaunchConfig(IFile file, String mode,
+	private ILaunchConfiguration selectLaunchConfig(IFile file,
 			ILaunchConfigurationType launchConfigType,
 			List<ILaunchConfiguration> configList) throws CoreException {
 		ILaunchConfiguration config = null;
@@ -71,16 +73,15 @@ public class FluxLaunchShortcut implements ILaunchShortcut {
 					.getFullPath().toOSString());
 			config = wc.doSave();
 		} else {
-			ILaunchConfiguration chosen = chooseConfiguration(configList, mode);
+			ILaunchConfiguration chosen = chooseConfiguration(configList);
 			config = chosen;
 		}
 		return config;
 	}
 
-	private List<ILaunchConfiguration> collectLaunchConfigs(IFile file,
+	private static List<ILaunchConfiguration> collectLaunchConfigs(IFile file,
 			ILaunchConfiguration[] configs) throws CoreException {
-		List<ILaunchConfiguration> configList =
-				new ArrayList<ILaunchConfiguration>();
+		List<ILaunchConfiguration> configList = new ArrayList<>();
 		for (ILaunchConfiguration launchConfiguration : configs) {
 			if (launchConfiguration.getAttribute(
 					FluxLaunchConfigurationDelegate.FILE_NAME, "").equals(
@@ -96,8 +97,7 @@ public class FluxLaunchShortcut implements ILaunchShortcut {
 		return lm.getLaunchConfigurationType("org.culturegraph.mf.ide.launching");
 	}
 
-	protected ILaunchConfiguration chooseConfiguration(List<?> configList,
-			String mode) {
+	protected ILaunchConfiguration chooseConfiguration(List<?> configList) {
 		IDebugModelPresentation labelProvider =
 				DebugUITools.newDebugModelPresentation();
 		ElementListSelectionDialog dialog =
@@ -111,9 +111,8 @@ public class FluxLaunchShortcut implements ILaunchShortcut {
 		labelProvider.dispose();
 		if (result == Window.OK) {
 			return (ILaunchConfiguration) dialog.getFirstResult();
-		} else {
-			return null;
 		}
+		return null;
 	}
 
 }

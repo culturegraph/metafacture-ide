@@ -14,6 +14,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.ILog;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.debug.core.ILaunch;
@@ -29,6 +30,7 @@ public class FluxLaunchConfigurationDelegate implements
 	private static final ILog LOG = Platform.getLog(Platform.getBundle(BUNDLE));
 	public static final String FILE_NAME = "filename";
 
+	@Override
 	public void launch(ILaunchConfiguration configuration, String mode,
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
 		System.out.println("Launching... config attributes: "
@@ -48,16 +50,16 @@ public class FluxLaunchConfigurationDelegate implements
 	private void runWorkflow(IProgressMonitor monitor, IResource member) {
 		if (!monitor.isCanceled()) {
 			File fluxFile = new File(member.getLocationURI());
-			LOG.log(new Status(Status.INFO, BUNDLE, "Running file: " + fluxFile));
+			LOG.log(new Status(IStatus.INFO, BUNDLE, "Running file: " + fluxFile));
 			try {
 				String fluxWithAbsolutePaths =
 						resolveDotInPaths(fluxFile.getAbsolutePath(), fluxFile.getParent());
-				LOG.log(new Status(Status.INFO, BUNDLE, "Resolved file: "
+				LOG.log(new Status(IStatus.INFO, BUNDLE, "Resolved file: "
 						+ fluxWithAbsolutePaths));
 				Flux.main(new String[] { fluxWithAbsolutePaths });
 			} catch (Exception e) {
 				e.printStackTrace();
-				LOG.log(new Status(Status.ERROR, BUNDLE, e.getMessage(), e));
+				LOG.log(new Status(IStatus.ERROR, BUNDLE, e.getMessage(), e));
 				Throwable rootCause = findRootCause(e);
 				MessageDialog.openError(PlatformUI.getWorkbench()
 						.getActiveWorkbenchWindow().getShell(), "Workflow Error",
@@ -67,8 +69,8 @@ public class FluxLaunchConfigurationDelegate implements
 		monitor.worked(7);
 	}
 
-	private String resolveDotInPaths(String fluxFileAbsolutePath, String parent)
-			throws IOException {
+	private static String resolveDotInPaths(String fluxFileAbsolutePath,
+			String parent) throws IOException {
 		final String originalContent = read(fluxFileAbsolutePath);
 		String resolvedContent = originalContent
 		/* just a dot, in a var: "." or "./" */
@@ -81,22 +83,22 @@ public class FluxLaunchConfigurationDelegate implements
 				: write(resolvedContent).getAbsolutePath();
 	}
 
-	private File write(String content) throws IOException {
+	private static File write(String content) throws IOException {
 		File resolvedFile = File.createTempFile("metafacture-ide", ".flux");
 		resolvedFile.deleteOnExit();
-		FileWriter writer = new FileWriter(resolvedFile);
-		writer.write(content);
-		writer.close();
+		try (FileWriter writer = new FileWriter(resolvedFile)) {
+			writer.write(content);
+		}
 		return resolvedFile;
 	}
 
-	private String read(String flow) throws FileNotFoundException {
+	private static String read(String flow) throws FileNotFoundException {
 		StringBuilder builder = new StringBuilder();
-		Scanner scanner = new Scanner(new File(flow));
-		while (scanner.hasNextLine()) {
-			builder.append(scanner.nextLine()).append("\n");
+		try (Scanner scanner = new Scanner(new File(flow))) {
+			while (scanner.hasNextLine()) {
+				builder.append(scanner.nextLine()).append("\n");
+			}
 		}
-		scanner.close();
 		return builder.toString();
 	}
 

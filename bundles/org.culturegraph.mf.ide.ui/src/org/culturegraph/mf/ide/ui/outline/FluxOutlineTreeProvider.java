@@ -10,5 +10,5 @@ import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider;
  * 
  */
 public class FluxOutlineTreeProvider extends DefaultOutlineTreeProvider {
-
+	// see http://www.eclipse.org/Xtext/documentation.html#outline
 }

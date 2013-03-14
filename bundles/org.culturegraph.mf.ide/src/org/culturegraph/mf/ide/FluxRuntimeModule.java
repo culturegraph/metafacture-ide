@@ -9,5 +9,5 @@ package org.culturegraph.mf.ide;
  */
 public class FluxRuntimeModule extends
 		org.culturegraph.mf.ide.AbstractFluxRuntimeModule {
-
+	// see http://www.eclipse.org/Xtext/documentation.html#dependencyInjection
 }
