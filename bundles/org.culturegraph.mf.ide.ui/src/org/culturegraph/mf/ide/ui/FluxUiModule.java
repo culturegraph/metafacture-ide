@@ -10,6 +10,9 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
  */
 public class FluxUiModule extends
 		org.culturegraph.mf.ide.ui.AbstractFluxUiModule {
+	/**
+	 * @param plugin The plugin to bind this UI module to.
+	 */
 	public FluxUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
 	}

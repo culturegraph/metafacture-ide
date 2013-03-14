@@ -2,6 +2,11 @@ package org.culturegraph.mf.ide.ui.quickfix;
 
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider;
 
+/**
+ * Add custom quick fixes.
+ * <p/>
+ * See http://www.eclipse.org/Xtext/documentation.html#quickfixes for usage.
+ */
 public class FluxQuickfixProvider extends DefaultQuickfixProvider {
 
 	// @Fix(MyJavaValidator.INVALID_NAME)

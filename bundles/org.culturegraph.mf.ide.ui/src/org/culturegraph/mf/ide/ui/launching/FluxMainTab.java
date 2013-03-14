@@ -7,6 +7,11 @@ import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
 import org.eclipse.swt.widgets.Composite;
 
+/**
+ * The main tab for the Flux launch configuration.
+ * 
+ * @author Fabian Steeg (fsteeg)
+ */
 public class FluxMainTab extends AbstractLaunchConfigurationTab {
 
 	@Override

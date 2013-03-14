@@ -23,11 +23,17 @@ import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.PlatformUI;
 
+/**
+ * Launch Flux files in the workspace by passing them to {@link Flux}.
+ * 
+ * @author Fabian Steeg (fsteeg)
+ */
 public class FluxLaunchConfigurationDelegate implements
 		ILaunchConfigurationDelegate {
 
 	private static final String BUNDLE = "org.culturegraph.mf.ide";
 	private static final ILog LOG = Platform.getLog(Platform.getBundle(BUNDLE));
+	/** The key to use for the name of the Flux file to launch. */
 	public static final String FILE_NAME = "filename";
 
 	@Override

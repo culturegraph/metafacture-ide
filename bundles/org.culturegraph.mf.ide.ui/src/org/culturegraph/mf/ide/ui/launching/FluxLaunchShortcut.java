@@ -25,6 +25,11 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.eclipse.ui.part.FileEditorInput;
 
+/**
+ * A launch shortcut to run Flux files (via Run -> Run As...).
+ * 
+ * @author Fabian Steeg (fsteeg)
+ */
 public class FluxLaunchShortcut implements ILaunchShortcut {
 
 	@Override
@@ -41,7 +46,7 @@ public class FluxLaunchShortcut implements ILaunchShortcut {
 		launchFlow(fei.getFile(), mode);
 	}
 
-	private void launchFlow(IFile file, String mode) {
+	private static void launchFlow(IFile file, String mode) {
 		System.out.println("Launching flow: " + file + " in mode " + mode);
 		try {
 			ILaunchConfigurationType launchConfigType = getLaunchConfigType();
@@ -58,7 +63,7 @@ public class FluxLaunchShortcut implements ILaunchShortcut {
 		}
 	}
 
-	private ILaunchConfiguration selectLaunchConfig(IFile file,
+	private static ILaunchConfiguration selectLaunchConfig(IFile file,
 			ILaunchConfigurationType launchConfigType,
 			List<ILaunchConfiguration> configList) throws CoreException {
 		ILaunchConfiguration config = null;
@@ -92,12 +97,12 @@ public class FluxLaunchShortcut implements ILaunchShortcut {
 		return configList;
 	}
 
-	protected ILaunchConfigurationType getLaunchConfigType() {
+	private static ILaunchConfigurationType getLaunchConfigType() {
 		ILaunchManager lm = DebugPlugin.getDefault().getLaunchManager();
 		return lm.getLaunchConfigurationType("org.culturegraph.mf.ide.launching");
 	}
 
-	protected ILaunchConfiguration chooseConfiguration(List<?> configList) {
+	private static ILaunchConfiguration chooseConfiguration(List<?> configList) {
 		IDebugModelPresentation labelProvider =
 				DebugUITools.newDebugModelPresentation();
 		ElementListSelectionDialog dialog =

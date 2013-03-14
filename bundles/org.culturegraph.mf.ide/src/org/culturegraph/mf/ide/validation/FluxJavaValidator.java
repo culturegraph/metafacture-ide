@@ -1,7 +1,10 @@
 package org.culturegraph.mf.ide.validation;
 
-import org.culturegraph.mf.ide.validation.AbstractFluxJavaValidator;
-
+/**
+ * Define custom rules to statically validate domain specific constraints.
+ * <p/>
+ * See http://www.eclipse.org/Xtext/documentation.html#validation
+ */
 public class FluxJavaValidator extends AbstractFluxJavaValidator {
 
 	// @Check

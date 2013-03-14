@@ -7,6 +7,11 @@ import org.eclipse.debug.ui.CommonTab;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
 
+/**
+ * The Flux launch configuration tab group (Run configuration... -> Flux).
+ * 
+ * @author Fabian Steeg (fsteeg)
+ */
 public class FluxTabGroup extends AbstractLaunchConfigurationTabGroup {
 
 	@Override

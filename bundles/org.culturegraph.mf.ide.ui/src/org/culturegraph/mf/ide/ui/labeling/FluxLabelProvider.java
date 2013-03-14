@@ -11,11 +11,13 @@ import com.google.inject.Inject;
 /**
  * Provides labels for a EObjects.
  * 
- * see
- * http://www.eclipse.org/Xtext/documentation/latest/xtext.html#labelProvider
+ * see http://www.eclipse.org/Xtext/documentation.html#labelProvider for usage
  */
 public class FluxLabelProvider extends DefaultEObjectLabelProvider {
 
+	/**
+	 * @param delegate The delegate to use for label creation.
+	 */
 	@Inject
 	public FluxLabelProvider(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
