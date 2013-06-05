@@ -17,7 +17,7 @@ Require-Bundle: org.culturegraph.mf.ide;visibility:=reexport,
  org.eclipse.xtext.ui.codetemplates.ui,
  org.eclipse.compare
 Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.culturegraph.mf.ide.ui.contentassist,
  org.culturegraph.mf.ide.ui.contentassist.antlr,
  org.culturegraph.mf.ide.ui.internal
