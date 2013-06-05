@@ -14,6 +14,8 @@ import org.culturegraph.mf.framework.annotations.Description;
 import org.culturegraph.mf.framework.annotations.In;
 import org.culturegraph.mf.framework.annotations.Out;
 
+import com.google.common.io.Closeables;
+
 /**
  * Use this class to register components to be used at runtime / without the
  * Equinox extension registry.
@@ -31,7 +33,7 @@ public class FluxRuntimeModule extends
 	 */
 	public static Map<String, String> fluxCommands()
 			throws ClassNotFoundException, IOException {
-		Map<String, String> result = new HashMap<>();
+		Map<String, String> result = new HashMap<String, String>();
 		ClassLoader loader = Thread.currentThread().getContextClassLoader();
 		for (Entry<Object, Object> command : properties(loader).entrySet()) {
 			Class<?> commandImpl = loader.loadClass(command.getValue().toString());
@@ -47,12 +49,14 @@ public class FluxRuntimeModule extends
 	private static Properties properties(ClassLoader loader) throws IOException {
 		Properties commands = new Properties();
 		String propertiesFileName = "flux-commands.properties";
-		try (InputStream propertiesFile =
-				loader.getResourceAsStream(propertiesFileName)) {
+		InputStream propertiesFile = loader.getResourceAsStream(propertiesFileName);
+		try {
 			if (propertiesFile == null)
 				throw new FileNotFoundException("Could not find " + propertiesFileName);
 			commands.load(propertiesFile);
 			return commands;
+		} finally {
+			Closeables.closeQuietly(propertiesFile);
 		}
 	}
 

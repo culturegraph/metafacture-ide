@@ -92,18 +92,24 @@ public class FluxLaunchConfigurationDelegate implements
 	private static File write(String content) throws IOException {
 		File resolvedFile = File.createTempFile("metafacture-ide", ".flux");
 		resolvedFile.deleteOnExit();
-		try (FileWriter writer = new FileWriter(resolvedFile)) {
+		FileWriter writer = new FileWriter(resolvedFile);
+		try {
 			writer.write(content);
+		} finally {
+			writer.close();
 		}
 		return resolvedFile;
 	}
 
 	private static String read(String flow) throws FileNotFoundException {
 		StringBuilder builder = new StringBuilder();
-		try (Scanner scanner = new Scanner(new File(flow))) {
+		Scanner scanner = new Scanner(new File(flow));
+		try {
 			while (scanner.hasNextLine()) {
 				builder.append(scanner.nextLine()).append("\n");
 			}
+		} finally {
+			scanner.close();
 		}
 		return builder.toString();
 	}
