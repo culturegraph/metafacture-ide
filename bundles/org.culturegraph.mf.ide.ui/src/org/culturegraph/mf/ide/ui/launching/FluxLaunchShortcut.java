@@ -86,7 +86,8 @@ public class FluxLaunchShortcut implements ILaunchShortcut {
 
 	private static List<ILaunchConfiguration> collectLaunchConfigs(IFile file,
 			ILaunchConfiguration[] configs) throws CoreException {
-		List<ILaunchConfiguration> configList = new ArrayList<>();
+		List<ILaunchConfiguration> configList =
+				new ArrayList<ILaunchConfiguration>();
 		for (ILaunchConfiguration launchConfiguration : configs) {
 			if (launchConfiguration.getAttribute(
 					FluxLaunchConfigurationDelegate.FILE_NAME, "").equals(

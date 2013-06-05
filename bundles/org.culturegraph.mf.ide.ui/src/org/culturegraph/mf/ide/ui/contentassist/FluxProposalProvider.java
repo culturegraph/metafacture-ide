@@ -34,9 +34,11 @@ public class FluxProposalProvider extends AbstractFluxProposalProvider {
 		super.complete_Pipe(model, ruleCall, context, acceptor);
 		try {
 			createFluxCommandProposals(context, acceptor);
-		} catch (IOException | ClassNotFoundException e) {
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 			acceptor.accept(createCompletionProposal(e.getMessage(), context));
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 
