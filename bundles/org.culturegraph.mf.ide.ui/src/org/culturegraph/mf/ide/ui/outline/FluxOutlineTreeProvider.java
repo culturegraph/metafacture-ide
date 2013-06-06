@@ -2,6 +2,7 @@
 
 package org.culturegraph.mf.ide.ui.outline;
 
+import org.culturegraph.mf.ide.flux.Mainflow;
 import org.culturegraph.mf.ide.flux.Metaflow;
 import org.culturegraph.mf.ide.flux.Pipe;
 import org.culturegraph.mf.ide.flux.VarDef;
@@ -37,7 +38,9 @@ public class FluxOutlineTreeProvider extends DefaultOutlineTreeProvider {
 		for (VarDef var : flow.getVars()) {
 			createNode(parent, var);
 		}
-		createNode(parent, flow.getFlow().getFlow()); // skip the `Mainflow`
+		for (Mainflow mainflow : flow.getFlows()) {
+			createNode(parent, mainflow.getFlow()); // skip the `Mainflow`
+		}
 	}
 
 }
