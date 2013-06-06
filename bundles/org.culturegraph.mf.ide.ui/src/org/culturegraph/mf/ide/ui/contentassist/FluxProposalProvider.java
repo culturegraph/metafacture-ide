@@ -50,8 +50,10 @@ public class FluxProposalProvider extends AbstractFluxProposalProvider {
 			ConfigurableCompletionProposal proposal =
 					(ConfigurableCompletionProposal) createCompletionProposal(entry
 							.getKey().toString(), context);
-			proposal.setAdditionalProposalInfo(entry.getValue().toString());
-			acceptor.accept(proposal);
+			if (proposal != null) {
+				proposal.setAdditionalProposalInfo(entry.getValue().toString());
+				acceptor.accept(proposal);
+			}
 		}
 	}
 
