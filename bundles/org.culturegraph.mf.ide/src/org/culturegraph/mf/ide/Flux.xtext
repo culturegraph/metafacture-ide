@@ -2,7 +2,7 @@ grammar org.culturegraph.mf.ide.Flux with org.eclipse.xtext.common.Terminals
 
 generate flux "http://www.culturegraph.org/metafacture/Flux"
 
-Metaflow : vars += VarDef* flow = Mainflow ;
+Metaflow : vars += VarDef* flows += Mainflow+ ;
 
 VarDef : (default ?= 'default')? id = ID '=' exp = Exp ';' ;
 
