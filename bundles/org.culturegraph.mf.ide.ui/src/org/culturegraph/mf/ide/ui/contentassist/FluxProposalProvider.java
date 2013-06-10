@@ -5,7 +5,7 @@ package org.culturegraph.mf.ide.ui.contentassist;
 import java.io.IOException;
 import java.util.Map.Entry;
 
-import org.culturegraph.mf.ide.FluxRuntimeModule;
+import org.culturegraph.mf.ide.domain.FluxCommandMetadata;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.text.AbstractReusableInformationControlCreator;
@@ -45,13 +45,14 @@ public class FluxProposalProvider extends AbstractFluxProposalProvider {
 	private void createFluxCommandProposals(ContentAssistContext context,
 			ICompletionProposalAcceptor acceptor) throws IOException,
 			ClassNotFoundException {
-		for (Entry<String, String> entry : FluxRuntimeModule.fluxCommands()
-				.entrySet()) {
+		for (Entry<String, FluxCommandMetadata> entry : FluxCommandMetadata
+				.commands().entrySet()) {
 			ConfigurableCompletionProposal proposal =
 					(ConfigurableCompletionProposal) createCompletionProposal(entry
 							.getKey().toString(), context);
 			if (proposal != null) {
-				proposal.setAdditionalProposalInfo(entry.getValue().toString());
+				proposal
+						.setAdditionalProposalInfo(entry.getValue().format().toString());
 				acceptor.accept(proposal);
 			}
 		}
