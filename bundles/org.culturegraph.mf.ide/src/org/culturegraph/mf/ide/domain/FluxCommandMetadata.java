@@ -28,6 +28,11 @@ public class FluxCommandMetadata {
 	private Out out;
 
 	/**
+	 * A mapping of flux commands to their metadata
+	 */
+	public static final Map<String, FluxCommandMetadata> COMMANDS = commands();
+
+	/**
 	 * @param command The Flux command (as used in a *.flux file and declared in
 	 *          flux.properties)
 	 * @throws ClassNotFoundException If the command's implementation class
@@ -63,10 +68,7 @@ public class FluxCommandMetadata {
 		return details;
 	}
 
-	/**
-	 * @return A mapping of flux commands to their metadata
-	 */
-	public static Map<String, FluxCommandMetadata> commands() {
+	private static Map<String, FluxCommandMetadata> commands() {
 		Map<String, FluxCommandMetadata> result =
 				new HashMap<String, FluxCommandMetadata>();
 		ClassLoader loader = Thread.currentThread().getContextClassLoader();

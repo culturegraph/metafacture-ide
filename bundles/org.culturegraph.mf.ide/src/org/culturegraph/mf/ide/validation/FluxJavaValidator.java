@@ -2,7 +2,7 @@
 
 package org.culturegraph.mf.ide.validation;
 
-import java.util.Map;
+import static org.culturegraph.mf.ide.domain.FluxCommandMetadata.COMMANDS;
 
 import org.culturegraph.mf.framework.DefaultTee;
 import org.culturegraph.mf.ide.domain.FluxCommandMetadata;
@@ -22,9 +22,6 @@ import com.google.common.base.Joiner;
  * @author Fabian Steeg (fsteeg)
  */
 public class FluxJavaValidator extends AbstractFluxJavaValidator {
-
-	private Map<String, FluxCommandMetadata> commands = FluxCommandMetadata
-			.commands();
 
 	private String pipeInput = null;
 	private String teeInput = null;
@@ -46,8 +43,8 @@ public class FluxJavaValidator extends AbstractFluxJavaValidator {
 		return Joiner.on(".").join(pipe.getQn().getIds());
 	}
 
-	private boolean isUnknownCommand(String commandId) {
-		return !commands.containsKey(commandId);
+	private static boolean isUnknownCommand(String commandId) {
+		return !COMMANDS.containsKey(commandId);
 	}
 
 	private boolean isFirstCommand() {
@@ -55,7 +52,7 @@ public class FluxJavaValidator extends AbstractFluxJavaValidator {
 	}
 
 	private FluxCommandMetadata previousCommand() {
-		return commands.get(pipeInput != null ? pipeInput : teeInput);
+		return COMMANDS.get(pipeInput != null ? pipeInput : teeInput);
 	}
 
 	private void remember(String commandId) {
@@ -67,13 +64,13 @@ public class FluxJavaValidator extends AbstractFluxJavaValidator {
 			pipeInput = commandId;
 	}
 
-	private boolean isTee(String commandId) {
-		return DefaultTee.class.isAssignableFrom(commands.get(commandId)
+	private static boolean isTee(String commandId) {
+		return DefaultTee.class.isAssignableFrom(COMMANDS.get(commandId)
 				.getImplementationType());
 	}
 
 	private void validateInput(String commandId, Class<?> inputType) {
-		FluxCommandMetadata metadata = commands.get(commandId);
+		FluxCommandMetadata metadata = COMMANDS.get(commandId);
 		checkInputAnnotation(commandId, metadata);
 		checkOutputAnnotation(commandId, metadata);
 		boolean isAssignable =
