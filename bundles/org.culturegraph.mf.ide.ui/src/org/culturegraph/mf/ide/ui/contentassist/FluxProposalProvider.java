@@ -2,7 +2,6 @@
 
 package org.culturegraph.mf.ide.ui.contentassist;
 
-import java.io.IOException;
 import java.util.Map.Entry;
 
 import org.culturegraph.mf.ide.domain.FluxCommandMetadata;
@@ -34,19 +33,16 @@ public class FluxProposalProvider extends AbstractFluxProposalProvider {
 		super.complete_Pipe(model, ruleCall, context, acceptor);
 		try {
 			createFluxCommandProposals(context, acceptor);
-		} catch (ClassNotFoundException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			acceptor.accept(createCompletionProposal(e.getMessage(), context));
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
 	}
 
 	private void createFluxCommandProposals(ContentAssistContext context,
-			ICompletionProposalAcceptor acceptor) throws IOException,
-			ClassNotFoundException {
-		for (Entry<String, FluxCommandMetadata> entry : FluxCommandMetadata
-				.commands().entrySet()) {
+			ICompletionProposalAcceptor acceptor) {
+		for (Entry<String, FluxCommandMetadata> entry : FluxCommandMetadata.COMMANDS
+				.entrySet()) {
 			ConfigurableCompletionProposal proposal =
 					(ConfigurableCompletionProposal) createCompletionProposal(entry
 							.getKey().toString(), context);
