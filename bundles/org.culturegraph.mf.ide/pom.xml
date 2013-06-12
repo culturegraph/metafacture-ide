@@ -11,57 +11,35 @@
 	</parent>
 	<artifactId>org.culturegraph.mf.ide</artifactId>
 	<packaging>eclipse-plugin</packaging>
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.xtend</groupId>
+			<artifactId>org.eclipse.xtend.lib</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+	</dependencies>
 	<build>
 		<plugins>
-               <plugin>
-			     <groupId>org.codehaus.mojo</groupId>
-			     <artifactId>build-helper-maven-plugin</artifactId>
-			     <version>1.7</version>
-			     <executions>
-				     <execution>
-					     <id>add-source</id>
-					     <phase>generate-sources</phase>
-					     <goals>
-						     <goal>add-source</goal>
-					     </goals>
-					     <configuration>
-						     <sources>
-							     <source>xtend-gen</source>
-						     </sources>
-					     </configuration>
-				     </execution>
-			     </executions>
-		     </plugin>
-               <plugin>
-	               <artifactId>maven-clean-plugin</artifactId>
-	               <version>2.4.1</version>
-	               <configuration>
-		               <filesets>
-			               <fileset>
-				               <directory>xtend-gen</directory>
-				               <includes>
-					               <include>**</include>
-				               </includes>
-			               </fileset>
-		               </filesets>
-	               </configuration>
-               </plugin>
-               <plugin>
-	               <groupId>org.eclipse.xtend</groupId>
-	               <artifactId>xtend-maven-plugin</artifactId>
-	               <version>2.3.1</version>
-	               <executions>
-		               <execution>
-			               <goals>
-				               <goal>compile</goal>
-				               <goal>testCompile</goal>
-			               </goals>
-			               <configuration>
-				               <outputDirectory>${basedir}/xtend-gen</outputDirectory>
-			               </configuration>
-		               </execution>
-	               </executions>
-               </plugin>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>xtend-gen</directory>
+							<includes>
+								<include>**</include>
+							</includes>
+						</fileset>
+						<fileset>
+							<directory>src-gen</directory>
+							<includes>
+								<include>**</include>
+							</includes>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.fornax.toolsupport</groupId>
 				<artifactId>fornax-oaw-m2-plugin</artifactId>
@@ -79,6 +57,41 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.eclipse.xtend</groupId>
+				<artifactId>xtend-maven-plugin</artifactId>
+				<version>2.4.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+							<goal>testCompile</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/xtend-gen</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>xtend-gen</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 		<resources>
 			<resource>
@@ -87,7 +100,8 @@
 		</resources>
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
