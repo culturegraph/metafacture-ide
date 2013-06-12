@@ -24,6 +24,10 @@ Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.culturegraph.mf.ide,
+ org.culturegraph.mf.ide.domain,
+ org.culturegraph.mf.ide.flux,
+ org.culturegraph.mf.ide.flux.impl,
+ org.culturegraph.mf.ide.flux.util,
  org.culturegraph.mf.ide.formatting,
  org.culturegraph.mf.ide.generator,
  org.culturegraph.mf.ide.launching,
@@ -32,8 +36,5 @@ Export-Package: org.culturegraph.mf.ide,
  org.culturegraph.mf.ide.scoping,
  org.culturegraph.mf.ide.serializer,
  org.culturegraph.mf.ide.services,
- org.culturegraph.mf.ide.validation,
- org.culturegraph.mf.ide.flux,
- org.culturegraph.mf.ide.flux.impl,
- org.culturegraph.mf.ide.flux.util
+ org.culturegraph.mf.ide.validation
 Bundle-ClassPath: lodmill-rd-0.1.0-SNAPSHOT-jar-with-dependencies.jar,.
