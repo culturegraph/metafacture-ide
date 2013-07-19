@@ -6,17 +6,19 @@ Metaflow : vars += VarDef* flows += Mainflow+ ;
 
 VarDef : (default ?= 'default')? id = ID '=' exp = Exp ';' ;
 
-Mainflow : (StdIn | Exp) '|' flow = Flow ';' ;
+Mainflow : (StdIn | Exp | Wormhole) '|' flow = Flow ';' ;
 
 Tee : ('{' flows += Flow '}')+ ;
 
-Flow : (pipes += Pipe | tees += Tee) ('|' (pipes += Pipe | tees += Tee))* ;
+Flow : (pipes += Pipe | tees += Tee) ('|' (pipes += Pipe | tees += Tee))* ('|' Wormhole)? ;
 
 StdIn : '>' ;
 
 Pipe : qn = QualifiedName ('(' args = PipeArgs ')')? ;
 
 Exp : Atom ('+' Atom)* ;
+
+Wormhole : '@' ID;
 
 Atom : STRING | ID ;
 
