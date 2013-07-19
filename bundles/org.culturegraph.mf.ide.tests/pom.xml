@@ -10,5 +10,20 @@
 		<relativePath>..</relativePath>
 	</parent>
 	<artifactId>org.culturegraph.mf.ide.tests</artifactId>
-	<packaging>eclipse-plugin</packaging>
+	<packaging>eclipse-test-plugin</packaging>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-surefire-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<useUIHarness>false</useUIHarness>
+					<useUIThread>false</useUIThread>
+					<testSuite>org.culturegraph.mf.ide.tests</testSuite>
+					<testClass>org.culturegraph.mf.ide.tests.FluxParserTests</testClass>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

@@ -88,7 +88,6 @@ public class FluxJavaValidator extends AbstractFluxJavaValidator {
 	private void checkInputAnnotation(String currentCommandId,
 			FluxCommandMetadata currentMeta) {
 		if (currentMeta.getInputType() == null) {
-			/* Warning for missing in, since that will always consume: */
 			warning(
 					String.format("Implementation class '%s' for command '%s' has no "
 							+ "@In annotation, can't validate workflow",
@@ -100,8 +99,7 @@ public class FluxJavaValidator extends AbstractFluxJavaValidator {
 	private void checkOutputAnnotation(String commandId,
 			FluxCommandMetadata metadata) {
 		if (metadata.getOutputType() == null) {
-			/* Info only for missing out, since that might not be consumed: */
-			info(String.format(
+			warning(String.format(
 					"Implementation '%s' for command '%s' has no @Out annotation",
 					metadata.getImplementationType().getName(), commandId),
 					FluxPackage.Literals.PIPE__QN);
