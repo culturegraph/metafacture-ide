@@ -11,3 +11,5 @@ plugin.xml_gen
 *-gen
 *.jar
 *.*~
+log
+.DS_Store
