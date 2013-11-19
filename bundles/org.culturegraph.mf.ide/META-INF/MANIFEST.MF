@@ -37,4 +37,4 @@ Export-Package: org.culturegraph.mf.ide,
  org.culturegraph.mf.ide.serializer,
  org.culturegraph.mf.ide.services,
  org.culturegraph.mf.ide.validation
-Bundle-ClassPath: lodmill-rd-0.1.0-SNAPSHOT-jar-with-dependencies.jar,.
+Bundle-ClassPath: lodmill-rd-1.0.0-jar-with-dependencies.jar,.

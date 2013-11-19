@@ -1,11 +1,11 @@
 #!/bin/sh
-export JAR=target/lodmill-rd-0.1.0-SNAPSHOT-jar-with-dependencies.jar
-export RES=src/main/resources
+VERSION=1.0.0
+JAR=target/lodmill-rd-$VERSION-jar-with-dependencies.jar
+RES=src/main/resources
 cd ../..
-git clone git://github.com/lobid/lodmill.git lodmill-dependency
-cd lodmill-dependency/lodmill-rd
-git pull origin master
-sh install-dependencies.sh
+git clone git://github.com/lobid/lodmill.git lodmill-$VERSION
+cd lodmill-$VERSION/lodmill-rd
+git checkout tags/v$VERSION
 mvn clean assembly:assembly -q --settings ../settings.xml
 jar uf $JAR -C $RES flux-commands.properties
 cp $JAR ../../metafacture-ide/bundles/org.culturegraph.mf.ide/

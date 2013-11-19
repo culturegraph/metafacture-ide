@@ -21,4 +21,4 @@ Import-Package: org.apache.log4j,
  org.hamcrest.core
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.culturegraph.mf.ide
-Bundle-ClassPath: lodmill-rd-0.1.0-SNAPSHOT-jar-with-dependencies.jar,.
+Bundle-ClassPath: lodmill-rd-1.0.0-jar-with-dependencies.jar,.

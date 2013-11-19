@@ -71,37 +71,18 @@ public class FluxJavaValidator extends AbstractFluxJavaValidator {
 
 	private void validateInput(String commandId, Class<?> inputType) {
 		FluxCommandMetadata metadata = COMMANDS.get(commandId);
-		checkInputAnnotation(commandId, metadata);
-		checkOutputAnnotation(commandId, metadata);
-		boolean isAssignable =
-				/* If no annotations are given, we have to assume it might work: */
-				inputType == null || metadata.getInputType() == null
-						|| metadata.getInputType().isAssignableFrom(inputType);
-		if (!isAssignable) {
-			error(String.format(
-					"Command '%s' expects input of type '%s', but got '%s'", commandId,
-					metadata.getInputType().getName(), inputType == null ? null
-							: inputType.getName()), FluxPackage.Literals.PIPE__QN);
-		}
-	}
-
-	private void checkInputAnnotation(String currentCommandId,
-			FluxCommandMetadata currentMeta) {
-		if (currentMeta.getInputType() == null) {
-			warning(
-					String.format("Implementation class '%s' for command '%s' has no "
-							+ "@In annotation, can't validate workflow",
-							currentMeta.getImplementationType(), currentCommandId),
-					FluxPackage.Literals.PIPE__QN);
-		}
-	}
-
-	private void checkOutputAnnotation(String commandId,
-			FluxCommandMetadata metadata) {
-		if (metadata.getOutputType() == null) {
+		Class<?> expectedInputType = metadata.getInputType();
+		if (inputType == null || expectedInputType == null
+		/* Object is used as output type with generics, can't validate: */
+		|| (inputType == Object.class && expectedInputType != Object.class)) {
 			warning(String.format(
-					"Implementation '%s' for command '%s' has no @Out annotation",
-					metadata.getImplementationType().getName(), commandId),
+					"Unverifiable workflow: '%s' expects input type '%s', but got '%s'",
+					commandId, expectedInputType, inputType),
+					FluxPackage.Literals.PIPE__QN);
+		} else if (!expectedInputType.isAssignableFrom(inputType)) {
+			error(String.format(
+					"Invalid workflow: '%s' expects input type '%s', but got '%s'",
+					commandId, expectedInputType, inputType),
 					FluxPackage.Literals.PIPE__QN);
 		}
 	}
