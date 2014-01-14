@@ -15,7 +15,12 @@
 		<dependency>
 			<groupId>org.eclipse.xtend</groupId>
 			<artifactId>org.eclipse.xtend.lib</artifactId>
-			<version>2.4.1</version>
+			<version>2.4.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.antlr</groupId>
+			<artifactId>antlr-runtime</artifactId>
+			<version>3.2</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -41,18 +46,25 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<groupId>org.fornax.toolsupport</groupId>
-				<artifactId>fornax-oaw-m2-plugin</artifactId>
-				<version>3.3.1</version>
-				<configuration>
-					<workflowEngine>mwe2</workflowEngine>
-					<workflowDescriptor>src/org/culturegraph/mf/ide/GenerateFlux.mwe2</workflowDescriptor>
-				</configuration>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
 				<executions>
 					<execution>
 						<phase>generate-sources</phase>
+						<configuration>
+							<tasks>
+								<property name="compile.classpath" refid="maven.compile.classpath" />
+								<property name="runtime.classpath" refid="maven.runtime.classpath" />
+								<java classpath="${compile.classpath}:${runtime.classpath}:src"
+									classname="org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher"
+									fork="true" failonerror="true">
+									<arg value="src/org/culturegraph/mf/ide/GenerateFlux.mwe2" />
+									<sysproperty key="file.encoding" value="UTF-8" />
+								</java>
+							</tasks>
+						</configuration>
 						<goals>
-							<goal>run-workflow</goal>
+							<goal>run</goal>
 						</goals>
 					</execution>
 				</executions>
@@ -60,7 +72,7 @@
 			<plugin>
 				<groupId>org.eclipse.xtend</groupId>
 				<artifactId>xtend-maven-plugin</artifactId>
-				<version>2.4.1</version>
+				<version>2.4.3</version>
 				<executions>
 					<execution>
 						<goals>
@@ -112,16 +124,16 @@
 								<pluginExecution>
 									<pluginExecutionFilter>
 										<groupId>
-											org.fornax.toolsupport
+											org.apache.maven.plugins
 										</groupId>
 										<artifactId>
-											fornax-oaw-m2-plugin
+											maven-antrun-plugin
 										</artifactId>
 										<versionRange>
-											[3.3.1,)
+											[1.7,)
 										</versionRange>
 										<goals>
-											<goal>run-workflow</goal>
+											<goal>run</goal>
 										</goals>
 									</pluginExecutionFilter>
 									<action>

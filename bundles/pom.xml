@@ -9,20 +9,12 @@
 	<packaging>pom</packaging>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<tycho-version>0.15.0</tycho-version>
+		<tycho-version>0.19.0</tycho-version>
 	</properties>
      <pluginRepositories>
-		<pluginRepository>
-			<id>maven.eclipse.org</id>
-			<url>http://maven.eclipse.org/nexus/content/groups/public/</url>
-		</pluginRepository>
 	     <pluginRepository>
 		     <id>xtend</id>
 		     <url>http://build.eclipse.org/common/xtend/maven/</url>
-	     </pluginRepository>
-	     <pluginRepository>
-		     <id>fornax</id>
-		     <url>http://fornax-platform.org/nexus/content/groups/public/</url>
 	     </pluginRepository>
 	</pluginRepositories>
 	<modules>
@@ -63,7 +55,7 @@
 							<groupId>org.culturegraph.mf</groupId>
 							<artifactId>org.culturegraph.mf.ide</artifactId>
 							<version>0.1.0-SNAPSHOT</version>
-							<classifier>juno</classifier>
+							<classifier>ide</classifier>
 						</artifact>
 				     </target>
                          <dependency-resolution>
