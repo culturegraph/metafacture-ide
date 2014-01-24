@@ -60,7 +60,8 @@ public class FluxCommandMetadata {
 									"<p><b>Out:</b> %s</p>" +
 									"<p><b>Implementation:</b> %s</p>" +
 							"</div>",
-							desc != null ? desc.value() : "<i>no description annotation</i>",
+							desc != null ? desc.value().replace("\n", "<br/>")
+									: "<i>no description annotation</i>",
 							in != null ? in.value() : "<i>no input annotation</i>",
 							out != null ? out.value() : "<i>no output annotation</i>",
 							impl.getName());
