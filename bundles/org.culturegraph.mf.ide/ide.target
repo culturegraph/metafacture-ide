@@ -1,40 +1,53 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="ide" sequenceNumber="22">
+<?pde version="3.8"?><target name="ide" sequenceNumber="48">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="de.itemis.tooling.xturtle.feature.feature.group" version="1.0.1"/>
-<repository location="jar:http://lobid.org/download/tools/p2/de.itemis.tooling.xturtle.updatesite-1.0.1.zip!/"/>
+<unit id="com.google.inject" version="3.0.0.v201312141243"/>
+<unit id="com.google.inject.multibindings" version="3.0.0.v201402270930"/>
+<unit id="com.google.guava" version="15.0.0.v201403281430"/>
+<unit id="com.google.inject.multibindings.source" version="3.0.0.v201402270930"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20150519210750/repository/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipselabs.xtext.utils.unittesting.feature.feature.group" version="0.9.3.201204261440"/>
 <repository location="http://xtext-utils.eclipselabs.org.codespot.com/git.distribution/releases/unittesting-0.9.x/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="de.itemis.xtext.antlr.feature.feature.group" version="2.1.0.v201308291703"/>
+<unit id="de.itemis.xtext.antlr.feature.feature.group" version="2.1.1.v201405091103"/>
 <repository location="http://download.itemis.de/updates/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.jdt.feature.group" version="3.9.1.v20130911-1000"/>
-<unit id="org.eclipse.equinox.sdk.feature.group" version="3.9.0.v20130828-0031"/>
-<unit id="org.eclipse.platform.sdk" version="4.3.1.M20130911-1000"/>
-<unit id="org.eclipse.pde.feature.group" version="3.9.1.v20130911-1000"/>
-<repository location="http://download.eclipse.org/eclipse/updates/4.3"/>
+<unit id="de.itemis.tooling.xturtle.feature.feature.group" version="1.0.1"/>
+<repository location="jar:http://lobid.org/download/tools/p2/de.itemis.tooling.xturtle.updatesite-1.0.1.zip!/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.xtend.sdk.feature.group" version="2.4.3.v201309030823"/>
-<unit id="org.eclipse.emf.mwe2.runtime.sdk.feature.group" version="2.4.1.v201309030422"/>
-<unit id="org.eclipse.emf.mwe2.language.sdk.feature.group" version="2.4.1.v201309030840"/>
-<unit id="org.eclipse.xtext.sdk.feature.group" version="2.4.3.v201309030823"/>
-<unit id="org.eclipse.gef.sdk.feature.group" version="3.9.1.201308190730"/>
-<unit id="org.eclipse.emf.mwe.sdk.feature.group" version="1.3.1.v201309030422"/>
-<unit id="org.eclipse.xpand.sdk.feature.group" version="1.4.0.v201306110406"/>
-<unit id="org.eclipse.emf.sdk.feature.group" version="2.9.1.v20130902-0605"/>
-<repository location="http://download.eclipse.org/releases/kepler"/>
+<unit id="org.eclipse.platform.sdk" version="4.5.0.I20150603-2000"/>
+<unit id="org.eclipse.jdt.feature.group" version="3.11.0.v20150603-2000"/>
+<unit id="org.eclipse.pde.feature.group" version="3.11.0.v20150603-2000"/>
+<unit id="org.eclipse.equinox.sdk.feature.group" version="3.11.0.v20150602-1417"/>
+<repository location="http://download.eclipse.org/eclipse/updates/4.5"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.gef4.zest.sdk.feature.group" version="0.1.0.201401110304"/>
-<unit id="org.eclipse.gef4.geometry.sdk.feature.group" version="0.1.0.201401110304"/>
-<repository location="http://download.eclipse.org/tools/gef/gef4/updates/integration"/>
+<unit id="org.eclipse.xpand.sdk.feature.group" version="2.1.0.v201505260349"/>
+<unit id="org.eclipse.emf.mwe.sdk.feature.group" version="1.3.10.v201505260335"/>
+<unit id="org.eclipse.gef4.fx.sdk.feature.group" version="0.1.0.201506081138"/>
+<unit id="org.eclipse.emf.mwe2.language.sdk.feature.group" version="2.8.0.v201505260456"/>
+<unit id="org.eclipse.gef4.dot.sdk.feature.group" version="0.1.0.201506081138"/>
+<unit id="org.eclipse.emf.sdk.feature.group" version="2.11.0.v20150601-0402"/>
+<unit id="org.eclipse.xtext.sdk.feature.group" version="2.8.3.v201506010551"/>
+<unit id="org.eclipse.emf.mwe2.runtime.sdk.feature.group" version="2.8.0.v201505260335"/>
+<unit id="org.eclipse.gef4.mvc.sdk.feature.group" version="0.1.0.201506081138"/>
+<unit id="org.eclipse.gef4.geometry.sdk.feature.group" version="0.1.0.201506081138"/>
+<unit id="org.eclipse.gef4.zest.sdk.feature.group" version="0.1.0.201506081138"/>
+<unit id="org.eclipse.gef4.common.sdk.feature.group" version="0.1.0.201506081138"/>
+<unit id="org.eclipse.gef4.graph.sdk.feature.group" version="0.1.0.201506081138"/>
+<unit id="org.eclipse.gef4.layout.sdk.feature.group" version="0.1.0.201506081138"/>
+<unit id="org.eclipse.xtend.sdk.feature.group" version="2.8.3.v201506010551"/>
+<repository location="http://download.eclipse.org/releases/mars"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.fx.runtime.min.feature.feature.group" version="2.0.0.201506111452"/>
+<repository location="http://download.eclipse.org/efxclipse/runtime-released/2.0.0/site"/>
 </location>
 </locations>
 </target>
