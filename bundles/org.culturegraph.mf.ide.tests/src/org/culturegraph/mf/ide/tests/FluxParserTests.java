@@ -2,14 +2,15 @@ package org.culturegraph.mf.ide.tests;
 
 import org.culturegraph.mf.ide.FluxInjectorProvider;
 import org.eclipse.xtext.junit4.InjectWith;
-import org.eclipselabs.xtext.utils.unittesting.XtextRunner2;
-import org.eclipselabs.xtext.utils.unittesting.XtextTest;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import com.itemis.xtext.testing.XtextRunner2;
+import com.itemis.xtext.testing.XtextTest;
 
 /**
  * Parse sample flux files.
