@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-import org.culturegraph.mf.Flux;
+import org.culturegraph.mf.runner.Flux;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -28,8 +28,8 @@ import org.eclipse.ui.PlatformUI;
  * 
  * @author Fabian Steeg (fsteeg)
  */
-public class FluxLaunchConfigurationDelegate implements
-		ILaunchConfigurationDelegate {
+public class FluxLaunchConfigurationDelegate
+		implements ILaunchConfigurationDelegate {
 
 	private static final String BUNDLE = "org.culturegraph.mf.ide";
 	private static final ILog LOG = Platform.getLog(Platform.getBundle(BUNDLE));
@@ -39,8 +39,8 @@ public class FluxLaunchConfigurationDelegate implements
 	@Override
 	public void launch(ILaunchConfiguration configuration, String mode,
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
-		System.out.println("Launching... config attributes: "
-				+ configuration.getAttributes());
+		System.out.println(
+				"Launching... config attributes: " + configuration.getAttributes());
 		monitor.beginTask("Flux Workflow", 10);
 		final String file = configuration.getAttribute(FILE_NAME, "");
 		IResource member =
@@ -60,15 +60,16 @@ public class FluxLaunchConfigurationDelegate implements
 			try {
 				String fluxWithAbsolutePaths =
 						resolveDotInPaths(fluxFile.getAbsolutePath(), fluxFile.getParent());
-				LOG.log(new Status(IStatus.INFO, BUNDLE, "Resolved file: "
-						+ fluxWithAbsolutePaths));
+				LOG.log(new Status(IStatus.INFO, BUNDLE,
+						"Resolved file: " + fluxWithAbsolutePaths));
 				Flux.main(new String[] { fluxWithAbsolutePaths });
 			} catch (Exception e) {
 				e.printStackTrace();
 				LOG.log(new Status(IStatus.ERROR, BUNDLE, e.getMessage(), e));
 				Throwable rootCause = findRootCause(e);
-				MessageDialog.openError(PlatformUI.getWorkbench()
-						.getActiveWorkbenchWindow().getShell(), "Workflow Error",
+				MessageDialog.openError(
+						PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
+						"Workflow Error",
 						rootCause.getMessage() + " (see error log for details).");
 			}
 		}
@@ -79,12 +80,12 @@ public class FluxLaunchConfigurationDelegate implements
 			String parent) throws IOException {
 		final String originalContent = read(fluxFileAbsolutePath);
 		String resolvedContent = originalContent
-		/* just a dot, in a var: "." or "./" */
-		.replaceAll("\"\\./?\"", "\"" + parent + "/\"")
-		/* leading dot in a path: "./etc" */
-		.replaceAll("\"\\./", "\"" + parent + "/")
-		/* somewhat odd case, but supported by Metaflow: */
-		.replace("file://./", "file://" + parent + "/");
+				/* just a dot, in a var: "." or "./" */
+				.replaceAll("\"\\./?\"", "\"" + parent + "/\"")
+				/* leading dot in a path: "./etc" */
+				.replaceAll("\"\\./", "\"" + parent + "/")
+				/* somewhat odd case, but supported by Metaflow: */
+				.replace("file://./", "file://" + parent + "/");
 		return originalContent.equals(resolvedContent) ? fluxFileAbsolutePath
 				: write(resolvedContent).getAbsolutePath();
 	}

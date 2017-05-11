@@ -4,7 +4,7 @@ package org.culturegraph.mf.ide.validation;
 
 import static org.culturegraph.mf.ide.domain.FluxCommandMetadata.COMMANDS;
 
-import org.culturegraph.mf.framework.DefaultTee;
+import org.culturegraph.mf.framework.helpers.DefaultTee;
 import org.culturegraph.mf.ide.domain.FluxCommandMetadata;
 import org.culturegraph.mf.ide.flux.Flow;
 import org.culturegraph.mf.ide.flux.FluxPackage;
@@ -65,8 +65,8 @@ public class FluxJavaValidator extends AbstractFluxJavaValidator {
 	}
 
 	private static boolean isTee(String commandId) {
-		return DefaultTee.class.isAssignableFrom(COMMANDS.get(commandId)
-				.getImplementationType());
+		return DefaultTee.class
+				.isAssignableFrom(COMMANDS.get(commandId).getImplementationType());
 	}
 
 	private void validateInput(String commandId, Class<?> inputType) {
@@ -74,15 +74,17 @@ public class FluxJavaValidator extends AbstractFluxJavaValidator {
 		Class<?> expectedInputType = metadata.getInputType();
 		if (inputType == null || expectedInputType == null
 		/* Object is used as output type with generics, can't validate: */
-		|| (inputType == Object.class && expectedInputType != Object.class)) {
-			warning(String.format(
-					"Unverifiable workflow: '%s' expects input type '%s', but got '%s'",
-					commandId, expectedInputType, inputType),
+				|| (inputType == Object.class && expectedInputType != Object.class)) {
+			warning(
+					String.format(
+							"Unverifiable workflow: '%s' expects input type '%s', but got '%s'",
+							commandId, expectedInputType, inputType),
 					FluxPackage.Literals.PIPE__QN);
 		} else if (!expectedInputType.isAssignableFrom(inputType)) {
-			error(String.format(
-					"Invalid workflow: '%s' expects input type '%s', but got '%s'",
-					commandId, expectedInputType, inputType),
+			error(
+					String.format(
+							"Invalid workflow: '%s' expects input type '%s', but got '%s'",
+							commandId, expectedInputType, inputType),
 					FluxPackage.Literals.PIPE__QN);
 		}
 	}

@@ -6,9 +6,9 @@ decode-xml |
 handle-marcxml |
 morph(files + "morph.xml") |
 stream-tee | {
-	encode-ntriples |
-	write(files + "output.nt")
+	encode-json |
+	write(files + "output.jsonl")
 }{
-	encode-dot |
-	write(files + "output.dot")
+	encode-literals |
+	write(files + "output.txt")
 };

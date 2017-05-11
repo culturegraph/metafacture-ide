@@ -75,8 +75,8 @@ public class FluxCommandMetadata {
 		ClassLoader loader = Thread.currentThread().getContextClassLoader();
 		try {
 			for (Entry<Object, Object> command : properties(loader).entrySet()) {
-				result.put(command.getKey().toString(), new FluxCommandMetadata(command
-						.getValue().toString()));
+				result.put(command.getKey().toString(),
+						new FluxCommandMetadata(command.getValue().toString()));
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
