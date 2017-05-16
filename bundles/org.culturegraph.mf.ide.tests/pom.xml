@@ -11,6 +11,13 @@
 	</parent>
 	<artifactId>org.culturegraph.mf.ide.tests</artifactId>
 	<packaging>eclipse-test-plugin</packaging>
+	<dependencies>
+		<dependency>
+			<groupId>org.culturegraph</groupId>
+			<artifactId>metafacture-core</artifactId>
+			<version>4.0.0</version>
+		</dependency>
+	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
@@ -23,6 +30,23 @@
 					<testSuite>org.culturegraph.mf.ide.tests</testSuite>
 					<testClass>org.culturegraph.mf.ide.tests.FluxParserTests</testClass>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.10</version>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<includeScope>runtime</includeScope>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

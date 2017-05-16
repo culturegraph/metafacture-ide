@@ -22,6 +22,16 @@
 			<artifactId>antlr-runtime</artifactId>
 			<version>3.2</version>
 		</dependency>
+		<dependency>
+			<groupId>org.culturegraph</groupId>
+			<artifactId>metafacture-core</artifactId>
+			<version>4.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.culturegraph</groupId>
+			<artifactId>metafacture-runner</artifactId>
+			<version>4.0.0</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -100,6 +110,23 @@
 							<sources>
 								<source>xtend-gen</source>
 							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.10</version>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<includeScope>runtime</includeScope>
 						</configuration>
 					</execution>
 				</executions>

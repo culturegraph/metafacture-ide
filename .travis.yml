@@ -1,8 +1,8 @@
 sudo: false
 language: java
-jdk: oraclejdk7
+jdk: oraclejdk8
 install:
   - cd bundles
-  # - sh deploy.sh # WIP, see https://github.com/culturegraph/metafacture-ide/issues/41
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
-  - travis_wait 30 mvn clean install -e
+  - mvn test -B

@@ -9,7 +9,7 @@ test.*
 *.dot*
 plugin.xml_gen
 *-gen
-# *.jar # WIP, see https://github.com/culturegraph/metafacture-ide/issues/41
+*.jar
 *.*~
 log
 .DS_Store
