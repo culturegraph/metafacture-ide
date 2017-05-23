@@ -18,9 +18,9 @@
       <value>Eclipse</value>
     </detail>
   </annotation>
-  <version name="mars"
-      label="Mars"
-      requiredJavaVersion="1.6">
+  <version name="neon"
+      label="Neon"
+      requiredJavaVersion="1.8">
     <setupTask
         xsi:type="setup.p2:P2Task"
         label="${scope.product.label} (${scope.product.version.label})">
@@ -34,12 +34,24 @@
           name="org.culturegraph.mf.ide.sdk.feature.group"/>
       <requirement
           name="org.eclipse.wst.xml_ui.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.m2e.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.egit.feature.group"/>
+      <requirement
+          name="org.eclipse.jdt.feature.group"/>
+      <requirement
+          name="org.eclipse.gef4.dot.sdk.feature.group"/>
+      <requirement
+          name="de.itemis.tooling.xturtle.feature.feature.group"/>
       <repository
-          url="http://download.eclipse.org/releases/mars"/>
+          url="http://download.eclipse.org/releases/neon"/>
       <repository
           url="http://lobid.org/download/tools/p2"/>
+      <repository
+          url="http://xturtle.nittka.de/snapshot"/>
     </setupTask>
-    <description>Metafacture IDE for Mars.</description>
+    <description>Metafacture IDE for Neon.</description>
   </version>
   <description>Eclipse integration for the Culturegraph Metafacture tools</description>
 </setup:Product>
