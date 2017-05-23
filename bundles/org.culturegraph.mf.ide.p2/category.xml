@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.culturegraph.mf.ide.sdk_0.1.0.qualifier.jar" id="org.culturegraph.mf.ide.sdk" version="0.1.0.qualifier">
+   <feature url="features/org.culturegraph.mf.ide.sdk_0.2.0.qualifier.jar" id="org.culturegraph.mf.ide.sdk" version="0.2.0.qualifier">
       <category name="Metafacture"/>
    </feature>
    <category-def name="Metafacture" label="Metafacture"/>

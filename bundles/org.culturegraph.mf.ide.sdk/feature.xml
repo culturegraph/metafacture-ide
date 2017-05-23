@@ -2,7 +2,11 @@
 <feature
       id="org.culturegraph.mf.ide.sdk"
       label="Metafacture IDE"
-      version="0.1.0.qualifier">
+      version="0.2.0.qualifier">
+
+   <description>
+      Metafacture IDE 0.2.0 based on Metafacture 4.0.0
+   </description>
 
    <plugin
          id="org.culturegraph.mf.ide"
