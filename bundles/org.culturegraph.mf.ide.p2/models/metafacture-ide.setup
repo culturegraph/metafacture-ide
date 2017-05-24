@@ -44,6 +44,8 @@
           name="org.eclipse.gef4.dot.sdk.feature.group"/>
       <requirement
           name="de.itemis.tooling.xturtle.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.oomph.setup.sdk.feature.group"/>
       <repository
           url="http://download.eclipse.org/releases/neon"/>
       <repository
