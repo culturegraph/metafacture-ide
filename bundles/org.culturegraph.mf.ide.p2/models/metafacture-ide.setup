@@ -53,12 +53,22 @@
           name="de.itemis.tooling.xturtle.feature.feature.group"/>
       <requirement
           name="org.eclipse.oomph.setup.sdk.feature.group"/>
+      <requirement
+          name="org.sonatype.m2e.buildhelper.feature.feature.group"/>
+      <requirement
+          name="org.sonatype.m2e.antlr.feature.feature.group"/>
+      <requirement
+          name="com.ianbrandt.tools.m2e.mdp.feature.feature.group"/>
       <repository
           url="http://download.eclipse.org/releases/neon"/>
       <repository
           url="http://lobid.org/download/tools/p2"/>
       <repository
           url="http://xturtle.nittka.de/snapshot"/>
+      <repository
+          url="http://coderplus.com/m2e-update-sites/maven-dependency-plugin"/>
+      <repository
+          url="https://repository.sonatype.org/content/repositories/forge-sites/m2e-extras/0.15.0/N/0.15.0.201206251206"/>
     </setupTask>
     <description>Metafacture IDE for Neon.</description>
   </version>
