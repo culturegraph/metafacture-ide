@@ -25,6 +25,13 @@
       targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.wst.xml.core/user_catalog.xml">
     <description>Set up metamorph and metamorph-test XSDs for content assist in XML editor.</description>
   </setupTask>
+  <setupTask
+      xsi:type="setup:EclipseIniTask"
+      id="org.culturegraph.mf.ide.dot-setup"
+      option="--launcher.GTK_version"
+      value="2">
+    <description>Use GTK 2 as workaround for http://bugs.eclipse.org/469126</description>
+  </setupTask>
   <version name="neon"
       label="Neon"
       requiredJavaVersion="1.8">
