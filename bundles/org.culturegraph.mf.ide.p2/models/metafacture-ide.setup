@@ -18,6 +18,13 @@
       <value>Eclipse</value>
     </detail>
   </annotation>
+  <setupTask
+      xsi:type="setup:ResourceCreationTask"
+      id="org.culturegraph.mf.ide.xsd-setup"
+      content="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>&#xA;&lt;catalog xmlns=&quot;urn:oasis:names:tc:entity:xmlns:xml:catalog&quot;>&#xA;  &lt;uri name=&quot;http://www.culturegraph.org/metamorph&quot; uri=&quot;platform:/resource/metafacture-core/src/main/resources/schemata/metamorph.xsd&quot;/>&#xA;  &lt;uri name=&quot;http://www.culturegraph.org/metamorph-test&quot; uri=&quot;platform:/resource/metafacture-core/src/main/resources/schemata/metamorph-test.xsd&quot;/>&#xA;&lt;/catalog>"
+      targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.wst.xml.core/user_catalog.xml">
+    <description>Set up metamorph and metamorph-test XSDs for content assist in XML editor.</description>
+  </setupTask>
   <version name="neon"
       label="Neon"
       requiredJavaVersion="1.8">
