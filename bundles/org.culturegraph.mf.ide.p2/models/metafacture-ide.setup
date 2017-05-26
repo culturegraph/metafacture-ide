@@ -66,6 +66,8 @@
           name="org.sonatype.m2e.antlr.feature.feature.group"/>
       <requirement
           name="com.ianbrandt.tools.m2e.mdp.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.wikitext_feature.feature.group"/>
       <repository
           url="http://download.eclipse.org/releases/neon"/>
       <repository
