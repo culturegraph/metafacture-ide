@@ -3,8 +3,10 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mylyn="http://www.eclipse.org/oomph/setup/mylyn/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/mylyn/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Mylyn.ecore"
     name="org.culturegraph.mf.ide"
     label="Metafacture IDE">
   <annotation
@@ -50,6 +52,19 @@
       value="org.eclipse.jdt.ui.JavaPerspective">
     <description>Open the Java perspective on startup</description>
   </setupTask>
+  <setupTask
+      xsi:type="mylyn:MylynQueriesTask"
+      id="org.culturegraph.mf.ide.mylyn.queries.metafacture-ide"
+      connectorKind="github"
+      repositoryURL="https://github.com/culturegraph/metafacture-ide">
+    <query summary="metafacture-ide issues"
+        url="">
+      <attribute
+          key="state"
+          value="open"/>
+    </query>
+    <description>Mylyn query for metafacture-ide</description>
+  </setupTask>
   <version name="neon"
       label="Neon"
       requiredJavaVersion="1.8">
@@ -86,6 +101,8 @@
           name="com.ianbrandt.tools.m2e.mdp.feature.feature.group"/>
       <requirement
           name="org.eclipse.mylyn.wikitext_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.github.feature.feature.group"/>
       <repository
           url="http://download.eclipse.org/releases/neon"/>
       <repository
