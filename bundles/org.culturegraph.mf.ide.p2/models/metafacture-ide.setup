@@ -36,6 +36,20 @@
       xsi:type="setup:VariableTask"
       name="installation.location"
       defaultValue="${install.root/metafacture-ide}"/>
+  <setupTask
+      xsi:type="setup:PreferenceTask"
+      id="org.culturegraph.mf.ide.default-perspective"
+      key="/instance/org.eclipse.ui/defaultPerspectiveId"
+      value="org.eclipse.jdt.ui.JavaPerspective">
+    <description>Set Java perspective as default</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:EclipseIniTask"
+      id="org.culturegraph.mf.ide.open-perspective"
+      option="-perspective"
+      value="org.eclipse.jdt.ui.JavaPerspective">
+    <description>Open the Java perspective on startup</description>
+  </setupTask>
   <version name="neon"
       label="Neon"
       requiredJavaVersion="1.8">
