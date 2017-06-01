@@ -1,12 +1,16 @@
 h1. Overview
 
-The Metafacture IDE provides Eclipse integration for the Culturegraph Metafacture tools.
+The Metafacture IDE provides an integrated environment for using and contributing to the "Culturegraph Metafacture":https://github.com/culturegraph/metafacture-documentation tools.
+
+It consists of Eclipse installer setup files for easy creation of a working environment, an Xtext-based editor, and a launcher for the Metafacture Flux language. Flux is a domain-specific language (DSL) used to drive metadata transformation workflows based on Metafacture, a stream based data processing framework with an XML-based metadata transformation language.
 
 "!https://travis-ci.org/culturegraph/metafacture-ide.png!":https://travis-ci.org/culturegraph/metafacture-ide
 
 h1. Documentation
 
-Documentation is available in the "wiki":https://github.com/culturegraph/metafacture-ide/wiki.
+The "User Guide":MANUAL.textile describes how to set up and use the Metafacture IDE for metadata transformation.
+
+The "Developer Guide":CONTRIBUTING.textile describes how to set up an environment for working on the Metafacture IDE.
 
 h1. License
 
