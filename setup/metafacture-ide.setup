@@ -35,10 +35,6 @@
     <description>Use GTK 2 as workaround for http://bugs.eclipse.org/469126</description>
   </setupTask>
   <setupTask
-      xsi:type="setup:VariableTask"
-      name="installation.location"
-      defaultValue="${install.root/metafacture-ide}"/>
-  <setupTask
       xsi:type="setup:PreferenceTask"
       id="org.culturegraph.mf.ide.default-perspective"
       key="/instance/org.eclipse.ui/defaultPerspectiveId"
