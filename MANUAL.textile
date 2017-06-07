@@ -24,7 +24,11 @@ https://raw.githubusercontent.com/culturegraph/metafacture-ide/42-setup/setup/pr
 
 * Select all the projects you just added (you can click the top-level _<User>_ box), click _Next_, review and change variables if desired (e.g. install location), click _Next_, _Finish_
 
-The installer will now create your Metafacture IDE, launch it, and perform setup tasks. During the installation, you will have to accept licenses for the software that's installed. After the IDE launches, setup activity is indicated in the lower right corner (_Performing setup tasks..._). When everything is done, you can close the welcome screen and you should see your working environment:
+The installer will now create your Metafacture IDE, launch it, and perform setup tasks. During the installation, you will have to accept licenses for the software that's installed. In particular, make sure you check the box to accept the Eclipse Foundation certificate before proceeding:
+
+!images/accept-certificate.png(Accept the Eclipse Foundation certificate before proceeding)!
+
+After the IDE launches, setup activity is indicated in the lower right corner (_Performing setup tasks..._). When everything is done, you can close the welcome screen and you should see your working environment:
 
 !images/new-ide.png(Initial IDE after installation)!
 
