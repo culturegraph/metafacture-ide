@@ -17,7 +17,7 @@
 				format="http://iflastandards.info/ns/isbd/terms/mediatype/T1010" />
 		</data>
 		<!-- Map specific fields: -->
-		<data source="8564 .u" name="http://lobid.org/vocab/lobid#fulltextOnline" />
+		<data source="8564 .u" name="http://purl.org/lobid/lv#fulltextOnline" />
 		<data source="24500.a" name="http://iflastandards.info/ns/isbd/elements/P1004">
 			<!-- Strip newlines with surrounding space: -->
 			<replace pattern="\s*\n+\s*" with=" " />
