@@ -67,6 +67,10 @@ The interaction of input, transformation rules, and output makes up the transfor
 
 !images/flux-2.png(Open a file)!
 
+If you're running on Linux and you don't see the documentation part of the content assist (the right window), install @libwebkitgtk@, e.g. on Debian, Ubuntu, or Mint:
+
+bc. apt-get install libwebkitgtk-1.0-0
+
 Next, we specify how to decode the information stored in the file (XML in our case):
 
 !images/flux-3.png(Decode content as XML)!
