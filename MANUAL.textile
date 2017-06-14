@@ -6,7 +6,22 @@ Welcome to the Metafacture IDE user guide. It will help you with setting up an i
 
 For general information on the Metafacture IDE see the "README":README.textile. For more information on Metafacture see the "metafacture-documentation":https://github.com/culturegraph/metafacture-documentation repo.
 
-h1. Installation
+h1. Contents
+
+"Features":#features
+"Installation":#installation
+"Flux-driven transformations":#flux-driven-transformations
+"Java-driven transformations":#java-driven-transformations
+"Metamorph testing framework":#metamorph-testing-framework
+"Next steps":#next-steps
+
+h1(#features). Features
+
+Metafacture is a framework for metadata processing. One basic idea of Metafacture is to separate the transformation rules from the specific input and output formats. In the transformation, key-value pairs are converted to other key-value-pairs, defined declaratively in an XML file (the Morph file). The Metafacture framework provides support for different input and output formats and is extensible for custom formats. The interaction of input, transformation rules, and output makes up the transformation workflow. This workflow can be defined in Metafacture with a domain-specific language called Flux, or with Java.
+
+The Metafacture IDE Flux support provides syntax coloring and syntax checking, semantic validation, content assist (CTRL+Space), an outline view, workflow visualization, and a launcher to execute Flux files (see screenshots and the sections below). The IDE also contains editors for many common and not so common file formats, like XML (for the actual Morph transformations and Morph tests, see sections below), HTML, many kinds of lightweight markup formats (Markdown, Textile, etc.), Turtle files, etc. It also integrates with development tools like Git and Maven.
+
+h1(#installation). Installation
 
 The easiest way to create a complete environment for working with Metafacture is using the Eclipse installer with the Metafacture IDE setup files:
 
@@ -14,7 +29,7 @@ Download the "Eclipse Installer":https://www.eclipse.org/downloads/ for your ope
 
 Switch to _Advanced Mode..._ using the &#8801; menu in the upper right, then click the + button in the upper right, paste the text below into the text box and click _OK_.
 
-bc. https://raw.githubusercontent.com/culturegraph/metafacture-ide/42-setup/setup/metafacture-ide.setup
+bc. https://raw.githubusercontent.com/culturegraph/metafacture-ide/master/setup/metafacture-ide.setup
 
 The selected entry should be _Metafacture IDE_, click _Next_:
 
@@ -22,10 +37,10 @@ The selected entry should be _Metafacture IDE_, click _Next_:
 
 Then click the + button in the upper right corner, in the _Catalog_ box select _Github projects_, paste the following into the text box, and click _OK_.
 
-bc. https://raw.githubusercontent.com/culturegraph/metafacture-ide/42-setup/setup/projects/metafacture-core.setup
-https://raw.githubusercontent.com/culturegraph/metafacture-ide/42-setup/setup/projects/metafacture-flux-examples.setup
-https://raw.githubusercontent.com/culturegraph/metafacture-ide/42-setup/setup/projects/metafacture-java-examples.setup
-https://raw.githubusercontent.com/culturegraph/metafacture-ide/42-setup/setup/projects/metafacture-runner.setup
+bc. https://raw.githubusercontent.com/culturegraph/metafacture-ide/master/setup/projects/metafacture-core.setup
+https://raw.githubusercontent.com/culturegraph/metafacture-ide/master/setup/projects/metafacture-flux-examples.setup
+https://raw.githubusercontent.com/culturegraph/metafacture-ide/master/setup/projects/metafacture-java-examples.setup
+https://raw.githubusercontent.com/culturegraph/metafacture-ide/master/setup/projects/metafacture-runner.setup
 
 Select all the projects you just added (you can click the top-level _<User>_ box), click _Next_:
 
@@ -49,21 +64,17 @@ After the IDE launches, setup activity is indicated in the lower right corner (_
 
 The _Package Explorer_ view (left) contains your local copies of the metafacture-core, runner, flux- and java-examples GitHub repositories. They are connected with the GitHub remote repos using the Eclipse Git integration. The _Task List_ view (right) contains tasks for each of these projects (plus the IDE itself) from the GitHub issue trackers for the repos. All views can be rearranged and resized by dragging and dropping (see next screenshot). You can find help in the integrated help system (_Help_ menu) or by searching the web for general Eclipse customization tips.
 
-h1. Flux-driven transformations
-
-After the installation, Metafacture *.flux files will open with the Flux editor. The Metafacture IDE provides syntax coloring and syntax checking, semantic validation, content assist (CTRL+Space), an outline view, workflow visualization, and a launcher to execute Flux files (see screenshot and the _Features_ section below). The IDE also contains editors for many common and not so common file formats, like XML, many kind of lightweight markup formats (Markdown, Textile, etc.), Turtle files, etc.
+h1(#flux-driven-transformations). Flux-driven transformations
 
 h2. Getting started
 
-To get started let's open the transformation workflow defined in @metafacture-flux-examples/sample0/sample.flux@. You can use the '-' icon in the upper right corners to minimize views you don't need:
+After the installation, Metafacture *.flux files will open with the Flux editor. To get started let's open the transformation workflow defined in @metafacture-flux-examples/sample0/sample.flux@. You can use the '-' icon in the upper right corners to minimize views you don't need:
 
 !images/flux-1.png(Sample transformation workflow in the Flux editor)!
 
 Before we take a closer look at the features of the Flux editor, let's understand what's going on here.
 
-Metafacture is a framework for metadata processing. One basic idea of Metafacture is to separate the transformation rules from the specific input and output formats. In the transformation, key-value pairs are converted to other key-value-pairs, defined declaratively in an XML file (the Morph file). The Metafacture framework provides support for different input and output formats and is extensible for custom formats. 
-
-The interaction of input, transformation rules, and output makes up the transformation workflow. This workflow is defined in Metafacture with a domain-specific language called Flux. The Metafacture IDE contains an Xtext-based editor and an Eclipse launcher for Flux files. We'll use these tools here to get an idea of what Flux is about. We start the workflow by specifying the path to our input file, relative to the location of the Flux file (using a variable declared with the @default@ keyword). The first interesting part of the workflow is how to interpret this input path. What we mean here is the path to a local, uncompressed file:
+We start our transformation workflow by specifying the path to our input file, relative to the location of the Flux file (using a variable declared with the @default@ keyword). The first interesting part of the workflow is how to interpret this input path. What we mean here is the path to a local, uncompressed file:
 
 !images/flux-2.png(Open a file)!
 
@@ -107,7 +118,7 @@ h2. Outline view
 
 The outline view provides a visual tree-like representation of your Flux workflow. It includes the input and output types of the Flux commands (in the form @Input -> Output@). See the section on _Semantic validation_ for more on input and output types.
 
-The elements in the Outline view are linked to the corresponding parts of you Flux file in the editor: double-clicking the elements will highlight the corresponding text. If you enable the _Link with Editor_ button in the Outline view, the active editor element will be highlighted in the Outline and vice versa:
+The elements in the Outline view are linked to the corresponding parts of you Flux file in the editor: clicking the elements will highlight the corresponding text. If you enable the _Link with Editor_ button in the Outline view, the active editor element will be highlighted in the Outline and vice versa:
 
 !images/outline.png(Flux editor and Outline view)!
 
@@ -145,7 +156,7 @@ Since you're now familiar with the Flux tools in the Metafacture IDE, have a loo
 
 On the left, we still have the Package Explorer view, below that the editor with the Flux file, and below that, the Outline view showing the structure and content types passed between the individual steps of the workflow. In the center, we have the input file, and the morph file, both in the structured XML view (can be switched to source with the tab at the bottom of the editors). Finally on the right side, we have the two output files created by this workflow.
 
-h1. Java-driven transformations
+h1(#java-driven-transformations). Java-driven transformations
 
 Since Metafacture itself is implemented in Java, workflows can also be written in Java directly instead of using Flux scripts. For Java programmers, this opens up many possibilities like integrating with existing Java libraries, performing additional actions, etc, as part of the workflow. Metafacture itself is extensible too. For instance, both Flux commands (e.g. open-file, decode-xml in the Flux file above) and Morph functions (e.g. replace in the Morph XML file above) are actually Java classes implementing specific interfaces that are called using reflection internally. The additional content assist information above is generated from annotations on these classes. The Metafacture IDE integrates the Eclipse Java Development tools and other plugins, e.g. for Maven, Git, and GitHub integration.
 
@@ -157,7 +168,7 @@ Conceptually, the same thing happens as in the Flux-driven workflow, but here, t
 
 !images/java-2.png(Run a Java-driven transformation workflow)!
 
-h1. Metamorph testing framework
+h1(#metamorph-testing-framework). Metamorph testing framework
 
 Metafacture contains a "testing framework for Morph mappings":https://github.com/culturegraph/metafacture-core/wiki/Testing-Framework-for-Metamorph. The transformations in metafacture-java-examples contain Morph tests using this framework. They test the mapping defined in the Morph file in isolation, independent of the rest of the workflow, ie. independent of the specific input or output formats. Let's take a look at the morph test for the sample from the section above:
 
@@ -175,6 +186,6 @@ The XML editor provides validation and content assist (can be triggered with CTR
 
 !images/test-4.png(Content assist in the XML editor)!
 
-h1. Next steps
+h1(#next-steps). Next steps
 
 This concludes the Metafacture IDE user guide. You can explore the included samples, or the metafacture-core project for implementation details. You can get in contact by "opening an issue":https://github.com/culturegraph/metafacture-documentation/issues/new in the "metafacture-documentation":https://github.com/culturegraph/metafacture-documentation repo or on the "metafacture mailing list":http://lists.dnb.de/mailman/listinfo/metafacture.
