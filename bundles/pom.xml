@@ -11,11 +11,15 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<tycho-version>1.0.0</tycho-version>
 	</properties>
-     <pluginRepositories>
-	     <pluginRepository>
-		     <id>xtend</id>
-		     <url>http://build.eclipse.org/common/xtend/maven/</url>
-	     </pluginRepository>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>central</id>
+			<url>http://repo1.maven.org/maven2/</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>xtend</id>
+			<url>http://build.eclipse.org/common/xtend/maven/</url>
+		</pluginRepository>
 	</pluginRepositories>
 	<modules>
 		<module>org.culturegraph.mf.ide</module>
