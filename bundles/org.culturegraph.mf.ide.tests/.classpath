@@ -2,23 +2,29 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry exported="true" kind="lib" path="target/dependency/antlr-runtime-3.5.2.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/dependency/commons-beanutils-1.9.2.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/dependency/commons-collections-3.2.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="target/dependency/commons-compress-1.12.jar"/>
 	<classpathentry exported="true" kind="lib" path="target/dependency/commons-io-2.5.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/dependency/commons-lang3-3.4.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/dependency/commons-logging-1.1.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="target/dependency/hamcrest-core-1.3.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/dependency/jackson-annotations-2.8.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="target/dependency/jackson-core-2.8.5.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/dependency/jackson-databind-2.8.5.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/dependency/jdom2-2.0.6.jar"/>
 	<classpathentry exported="true" kind="lib" path="target/dependency/junit-4.12.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/dependency/metafacture-core-4.0.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/dependency/opencsv-3.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/dependency/metafacture-biblio-5.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/dependency/metafacture-commons-5.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/dependency/metafacture-flowcontrol-5.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/dependency/metafacture-formatting-5.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/dependency/metafacture-formeta-5.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/dependency/metafacture-framework-5.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/dependency/metafacture-io-5.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/dependency/metafacture-javaintegration-5.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/dependency/metafacture-json-5.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/dependency/metafacture-mangling-5.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/dependency/metafacture-monitoring-5.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/dependency/metafacture-strings-5.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/dependency/metafacture-triples-5.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/dependency/metafacture-xml-5.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/dependency/metamorph-5.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/dependency/metamorph-api-5.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="target/dependency/metamorph-test-5.0.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="target/dependency/slf4j-api-1.7.21.jar"/>
-	<classpathentry exported="true" kind="lib" path="target/dependency/xz-1.6.jar"/>
 	<classpathentry kind="src" path="src/"/>
 	<classpathentry kind="src" path="src-gen/"/>
 	<classpathentry kind="src" path="resources"/>

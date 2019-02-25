@@ -4,13 +4,13 @@ package org.culturegraph.mf.ide.validation;
 
 import static org.culturegraph.mf.ide.domain.FluxCommandMetadata.COMMANDS;
 
-import org.culturegraph.mf.framework.helpers.DefaultTee;
 import org.culturegraph.mf.ide.domain.FluxCommandMetadata;
 import org.culturegraph.mf.ide.flux.Flow;
 import org.culturegraph.mf.ide.flux.FluxPackage;
 import org.culturegraph.mf.ide.flux.Mainflow;
 import org.culturegraph.mf.ide.flux.Pipe;
 import org.eclipse.xtext.validation.Check;
+import org.metafacture.framework.helpers.DefaultTee;
 
 import com.google.common.base.Joiner;
 
